@@ -25,9 +25,9 @@
    <div class="container" *ngIf="pasantiasActivas">
       <h2 class="container-title">Pasantías activas</h2>
       <form>
-         <app-especialidades></app-especialidades>
-         <app-anio-alumno></app-anio-alumno>
-         <app-remuneracion></app-remuneracion>
+         <app-especialidades (OutputEspecialidad)="receiveEspecialidad($event)"></app-especialidades>
+         <app-anio-alumno (OutputAnio)="receiveAnioCursado($event)"></app-anio-alumno>
+         <app-remuneracion (OutputRemuneracion)="receiveRemuneracion($event)"></app-remuneracion>
          <button type="button">
             Buscar
          </button>

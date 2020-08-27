@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { aniosCursado } from '../../../environments/environment';
 
 @Component({
@@ -8,8 +8,16 @@ import { aniosCursado } from '../../../environments/environment';
 })
 export class AnioAlumnoComponent implements OnInit {
   anios: any[] = aniosCursado;
+  selected: number;
+
+  @Input() InputAnio: number;
+  @Output() OutputAnio: EventEmitter<number> = new EventEmitter<number>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  seleccionar(){
+    this.OutputAnio.emit(+this.selected);
   }
 }

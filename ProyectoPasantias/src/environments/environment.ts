@@ -7,28 +7,28 @@ export const environment = {
 };
 
 export const especialidades: any[] = [
-  'Civil',
-  'Eléctrica',
-  'Electrónica',
-  'Industrial',
-  'Mecánica',
-  'Metalúrgica',
-  'Química',
-  'Sistemas de información',
+  { especialidad: 'Civil', idEsp:1},
+  { especialidad: 'Eléctrica', idEsp:2},
+  { especialidad: 'Electrónica', idEsp:3},
+  { especialidad: 'Industrial', idEsp:4},
+  { especialidad: 'Mecánica', idEsp:5},
+  { especialidad: 'Metalúrgica', idEsp:6},
+  { especialidad: 'Química', idEsp:7},
+  { especialidad: 'Sistemas de información', idEsp:8},
 ]
 
 export const aniosCursado: any[] = [
-  'Primero', 
-  'Segundo', 
-  'Tercero',
-  'Cuarto',
-  'Quinto',
-  'Sexto'
+  { descripcion: 'Primero', id:1}, 
+  { descripcion: 'Segundo', id:2},
+  { descripcion: 'Tercero', id:3},
+  { descripcion: 'Cuarto', id:4},
+  { descripcion: 'Quinto', id:5},
+  { descripcion: 'Sexto', id:6} 
 ]
 
 export const rangos: any[]=[
-  'Entre $10000 y $20000',
-  'Entre $20000 y $30000'
+  { rango: 'Entre $10000 y $20000', id:1},
+  { rango: 'Entre $20000 y $30000', id:2}
 ]
 
 /*

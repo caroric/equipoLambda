@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { rangos } from '../../../environments/environment';
 
 @Component({
@@ -8,9 +8,16 @@ import { rangos } from '../../../environments/environment';
 })
 export class RemuneracionComponent implements OnInit {
   rangos: any[] = rangos;
+  selected: number;
+
+  @Input() InputRemuneracion: number;
+  @Output() OutputRemuneracion: EventEmitter<number> = new EventEmitter<number>();
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  seleccionar(){
+    this.OutputRemuneracion.emit(+this.selected);
+  }
 }
