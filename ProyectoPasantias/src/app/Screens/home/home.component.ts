@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Pasantia } from '../../Models/Pasantia';
+import { MockPasantiasService } from '../../Services/mock-pasantias.service';
 
 @Component({
   selector: 'app-home',
@@ -7,15 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   //Variables para manejo de pantalla.
-  pasantiasActivas: boolean = false;
+  mostrarFiltros: boolean = false;
+  tablaPasantias: boolean = false;
 
   //Variables de datos.
   idEspecialidad: number;
   idAnio: number;
   idRango: number;
-  constructor() { }
+  pasantias: Pasantia[] = [];
+
+  constructor(private mockService: MockPasantiasService) { }
 
   ngOnInit(): void {
+    this.pasantias = this.mockService.getPasantiasActivas();
   }
 
   receiveEspecialidad($event){
@@ -32,8 +38,12 @@ export class HomeComponent implements OnInit {
     this.idRango = $event;
     console.log('Home/remuneracion --> ' + this.idRango);
   }
-  
+
   mostrarTabla(){
-    this.pasantiasActivas = true;
+    this.mostrarFiltros = true;
+  }
+
+  buscarPasantias(){
+    this.tablaPasantias = true;
   }
 }

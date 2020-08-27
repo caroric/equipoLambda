@@ -1,10 +1,9 @@
 <div class="select-component">
    <label>Remuneración esperada</label>
    <select id="idRemuneracion"
-   class="browser-default custom-select custom-select-sm mb-3"
+   class="browser-default custom-select custom-select-sm"
    name="selectAniosCursado"
    [(ngModel)]="selected" (change)="seleccionar()">
-      <option selected>Seleccione un rango</option>
       <option *ngFor="let r of rangos" value="{{r.id}}">{{r.rango}}</option>
     </select>
 </div>

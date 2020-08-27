@@ -1,10 +1,9 @@
 <div class="select-component">
    <label>Año de cursado</label>
    <select id="idAnioCursado"
-   class="browser-default custom-select custom-select-sm mb-3"
+   class="browser-default custom-select custom-select-sm"
    name="selectAniosCursado"
    [(ngModel)]="selected" (change)="seleccionar()">
-      <option selected>Seleccione un año</option>
       <option *ngFor="let a of anios" value="{{a.id}}">{{a.descripcion}}</option>
     </select>
 </div>
