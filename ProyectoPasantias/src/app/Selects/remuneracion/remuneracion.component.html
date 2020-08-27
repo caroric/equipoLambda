@@ -1,0 +1,7 @@
+<div class="select-component">
+   <label>Remuneración esperada</label>
+   <select class="browser-default custom-select custom-select-sm mb-3">
+      <option selected>Seleccione un rango</option>
+      <option *ngFor="let r of rangos" value="r">{{r}}</option>
+    </select>
+</div>

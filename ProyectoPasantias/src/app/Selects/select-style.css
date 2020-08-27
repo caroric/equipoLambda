@@ -1,0 +1,20 @@
+.select-component{
+   display: flex;
+   margin-top: 15px;
+}
+
+label{
+   font-size: small;
+   color: cornflowerblue;
+   padding-top: 3px;
+   font-family: sans-serif;
+}
+
+select{
+   margin-left: 15px;
+   margin-right: 15px;
+}
+
+.btn{
+   margin-bottom: 15px;
+}
