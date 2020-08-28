@@ -40,10 +40,12 @@ export class HomeComponent implements OnInit {
   }
 
   mostrarTabla(){
+    this.tablaPasantias = false;
     this.mostrarFiltros = true;
   }
 
   buscarPasantias(){
+    this.mostrarFiltros= false;
     this.tablaPasantias = true;
   }
 }
