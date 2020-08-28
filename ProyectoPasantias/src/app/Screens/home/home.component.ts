@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   idAnio: number;
   idRango: number;
   pasantias: Pasantia[] = [];
+  palabrasClave: string;
 
   constructor(private mockService: MockPasantiasService) { }
 
@@ -39,6 +40,11 @@ export class HomeComponent implements OnInit {
     console.log('Home/remuneracion --> ' + this.idRango);
   }
 
+  receivePalabrasClave($event){
+    this.palabrasClave = $event;
+    console.log('Palabras clave --> ' + this.palabrasClave);
+  }
+
   mostrarTabla(){
     this.tablaPasantias = false;
     this.mostrarFiltros = true;
@@ -47,5 +53,10 @@ export class HomeComponent implements OnInit {
   buscarPasantias(){
     this.mostrarFiltros= false;
     this.tablaPasantias = true;
+  }
+
+  verDatosPasantia(pasantia: any){
+    console.log('ver pasantia');
+    console.log(pasantia);
   }
 }

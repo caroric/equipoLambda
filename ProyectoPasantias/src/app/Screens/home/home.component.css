@@ -2,7 +2,7 @@
    margin-top: 25px;
    padding-left: 10px;
    padding-right: 10px;
-   border-radius: 10px;
+   border-radius: 5px;
    background-color: #ffffff;
  }
 
@@ -28,6 +28,13 @@
     height: 50px;
  }
 
+ .container-table{
+  margin-top: 25px;
+  background-color: #ffffff;
+  padding-left: 0px;
+  padding-right: 0px;
+ }
+
  button{
    background-color: #4D67B7;
    color: #ffffff;
@@ -44,6 +51,13 @@
    margin-left:25px;
  }
 
+ .busqueda{
+  font-size: medium;
+  display: flex;
+  color: #6495ed;
+}
+
+
  form{
    display: flex;
  }
@@ -57,20 +71,19 @@
   text-align: center;
  }
 
+ form label{
+   padding-top: 8px;
+ }
+
  thead{
    background-color: #4D67B7;
    color: #ffffff;
  }
 
- .busqueda{
-   font-size: medium;
-   display: inline-table;
-   color: #6495ed;
- }
-
- input{
-  margin-left: 10px;
-  border-style: solid;
-  width: 250px;
-  border-color: #0008b0;
- }
+ body {
+  background: url("../../../assets/img/UTN.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}

@@ -8,6 +8,7 @@ import { EspecialidadesComponent } from './Selects/especialidades/especialidades
 import { HomeComponent } from './Screens/home/home.component';
 import { AnioAlumnoComponent } from './Selects/anio-alumno/anio-alumno.component';
 import { RemuneracionComponent } from './Selects/remuneracion/remuneracion.component';
+import { PalabrasClaveComponent } from './Inputs/palabras-clave/palabras-clave.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { RemuneracionComponent } from './Selects/remuneracion/remuneracion.compo
     EspecialidadesComponent,
     HomeComponent,
     AnioAlumnoComponent,
-    RemuneracionComponent
+    RemuneracionComponent,
+    PalabrasClaveComponent
   ],
   imports: [
     BrowserModule,
