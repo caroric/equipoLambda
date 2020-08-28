@@ -9,6 +9,7 @@ import { HomeComponent } from './Screens/home/home.component';
 import { AnioAlumnoComponent } from './Selects/anio-alumno/anio-alumno.component';
 import { RemuneracionComponent } from './Selects/remuneracion/remuneracion.component';
 import { PalabrasClaveComponent } from './Inputs/palabras-clave/palabras-clave.component';
+import { ListaPasantiasComponent } from './Tables/lista-pasantias/lista-pasantias.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PalabrasClaveComponent } from './Inputs/palabras-clave/palabras-clave.c
     HomeComponent,
     AnioAlumnoComponent,
     RemuneracionComponent,
-    PalabrasClaveComponent
+    PalabrasClaveComponent,
+    ListaPasantiasComponent
   ],
   imports: [
     BrowserModule,

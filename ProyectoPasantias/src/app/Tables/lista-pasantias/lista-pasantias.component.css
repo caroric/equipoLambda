@@ -1,0 +1,18 @@
+
+ .container-table{
+   margin-top: 25px;
+   background-color: #ffffff;
+   padding-left: 0px;
+   padding-right: 0px;
+  }
+
+  .container {
+   margin-top: 25px;
+   border-radius: 5px;
+   background-color: #ffffff;
+ }
+
+thead{
+  background-color: #4D67B7;
+  color: #ffffff;
+}
