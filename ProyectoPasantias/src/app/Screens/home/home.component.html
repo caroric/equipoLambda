@@ -23,7 +23,7 @@
    
    <div>
       <!--Filtros de búsqueda-->
-      <div class="container" *ngIf="mostrarFiltros">
+      <div class="container" *ngIf="(mostrarFiltros) || (tablaPasantias && pasantias.length === 0) ">
          <h2 class="container-title">Pasantías activas</h2>
          <form>
             <app-especialidades (OutputEspecialidad)="receiveEspecialidad($event)"></app-especialidades>
