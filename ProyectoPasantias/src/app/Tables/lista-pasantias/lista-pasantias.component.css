@@ -1,5 +1,4 @@
-
- .container-table{
+.container-table{
    margin-top: 25px;
    background-color: #ffffff;
    padding-left: 0px;
@@ -15,4 +14,28 @@
 thead{
   background-color: #4D67B7;
   color: #ffffff;
+}
+
+.datos{
+  padding-left: 10px;
+}
+
+.descripcion{
+  padding-right: 7px;
+}
+
+button{
+  background-color: #4D67B7;
+   color: #ffffff;
+   font-family: sans-serif;
+   font-size: large;
+   border-radius: 5px;
+   border-style: none;
+   margin-top: 15px;
+   margin-bottom: 15px;
+   padding-left: 25px;
+   padding-right: 25px;
+   padding-top: 4px;
+   padding-bottom: 4px;
+   margin-left:25px;
 }
