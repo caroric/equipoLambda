@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Pasantia } from '../../Models/Pasantia';
 import { MockPasantiasService } from '../../Services/mock-pasantias.service';
 
@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   idRango: number;
   pasantias: Pasantia[] = [];
   palabrasClave: string;
+  pasantiasFiltradas: Pasantia[] = [];
 
   constructor(private mockService: MockPasantiasService) { }
 
@@ -43,7 +44,19 @@ export class HomeComponent implements OnInit {
   receivePalabrasClave($event){
     this.palabrasClave = $event;
     console.log('Palabras clave --> ' + this.palabrasClave);
+    this.pasantias = this.mockService.getPasantiasActivas();/*esto estoy seguro que va a haber que cambiarlo despues*/
+    this.filtrarPasantias();
   }
+
+  filtrarPasantias(){
+    this.pasantiasFiltradas = this.pasantias.filter(Pasantia => Pasantia.razonSocial.toLowerCase().includes(this.palabrasClave.toLowerCase()) 
+    || Pasantia.perfil.toLowerCase().includes(this.palabrasClave.toLowerCase()) 
+    || Pasantia.cargoACubrir.toLowerCase().includes(this.palabrasClave.toLowerCase()));
+    this.pasantias = this.pasantiasFiltradas;
+    console.log(this.pasantiasFiltradas);
+    console.log(this.pasantias);
+  }
+
 
   mostrarTabla(){
     this.tablaPasantias = false;
@@ -54,6 +67,9 @@ export class HomeComponent implements OnInit {
     this.mostrarFiltros= false;
     this.tablaPasantias = true;
   }
+
+
+      
 
   verDatosPasantia(pasantia: any){
     console.log('ver pasantia');
