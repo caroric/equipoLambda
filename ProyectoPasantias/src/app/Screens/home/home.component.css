@@ -6,6 +6,11 @@
    background-color: #ffffff;
  }
 
+ body{
+  background-image: url("../../../assets/img/UTN.png");
+  width: 1920px;
+  height: 1080px;
+}
  .background{
    background-image: url("../../../assets/img/UTN.png");
    height: 100%; 
