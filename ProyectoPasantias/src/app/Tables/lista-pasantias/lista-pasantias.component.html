@@ -1,0 +1,91 @@
+<div *ngIf="verPasantias" class="container container-table table-responsive">
+   <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Fecha búsqueda</th>
+          <th scope="col">Empresa</th>
+          <th scope="col">Perfil</th>
+          <th scope="col">Cargo a cubrir</th>
+          <th scope="col">Fin búsqueda</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pas of InputPasantias">
+          <td>{{pas.fechaInicioBusqueda | date: 'shortDate' | date: 'dd/MM/yyyy'}}</td>
+          <td>{{pas.razonSocial}}</td>
+          <td>{{pas.perfil}}</td>
+          <td>{{pas.cargoACubrir}}</td>
+          <td>{{pas.fechaFinBusqueda | date: 'shortDate' | date: 'dd/MM/yyyy'}}</td>
+          <td>
+            <a routerLink="" (click)="verDatosPasantia(pas)">
+               <i class="fas fa-plus-square"></i> Info
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<!--Datos de pasantía seleccionada-->
+<div *ngIf="verInfoPasantia" class="container container-table table-responsive">
+   <table class="table">
+      <thead>
+        <h3 class="text-center text-capitalize">Datos</h3>
+      </thead>
+      <tbody>
+         <tr>
+            <td><strong class="descripcion">Perfil solicitado: </strong>
+            {{pasantiaSeleccionada.perfil}}</td>
+         </tr>
+         <tr>
+            <td><strong class="descripcion">Área de desempeño:   </strong>
+            {{pasantiaSeleccionada.areaDesempenio}}</td>
+         </tr>
+         <tr>
+            <td><strong class="descripcion">Cantidad de pasantes:   </strong>
+            {{pasantiaSeleccionada.cantidadPasantes}}</td>
+         </tr>
+         <tr>
+            <td><strong class="descripcion">Conocimientos requeridos:     </strong>
+            {{pasantiaSeleccionada.otrosConocimientos}}</td>
+         </tr>
+         <tr>
+            <td *ngIf="pasantiaSeleccionada.experiencia !== 0">
+            <strong class="descripcion">Experiencia:  </strong>
+            {{pasantiaSeleccionada.experiencia}}</td>
+            <td *ngIf="pasantiaSeleccionada.experiencia === 0">
+            <strong class="descripcion">Experiencia:    </strong>
+            <i>No se requiere experiencia previa.</i>
+            </td>
+         </tr>
+         <tr>
+            <td><strong class="descripcion">Duración de la pasantía:</strong>
+            {{pasantiaSeleccionada.duracionMeses}} meses</td>
+         </tr>
+         <tr>
+            <td><strong class="descripcion">Alumno/a regular en:</strong>
+            {{pasantiaSeleccionada.anioCursado}}</td>
+         </tr>
+         <tr>
+            <td><strong class="descripcion">Horario para entrevista:</strong>
+            Entre las {{pasantiaSeleccionada.horaEntrevistaDesde}} y las
+            {{pasantiaSeleccionada.horaEntrevistaHasta}} hs.</td>
+         </tr>
+         <tr>
+            <td><strong class="descripcion">Se ofrece: </strong>
+            {{pasantiaSeleccionada.seOfrece}}</td>
+         </tr>
+         <tr>
+            <td><strong class="descripcion">Enviar CV a: </strong>
+            {{pasantiaSeleccionada.mail}}</td>
+         </tr>
+         <tr>
+            <button class="justify-content-center" (click)="volver()">
+               <i class="fa fa-arrow-left" aria-hidden="true"></i>  Regresar
+            </button>
+         </tr>
+      </tbody>
+    </table>
+</div>
+
