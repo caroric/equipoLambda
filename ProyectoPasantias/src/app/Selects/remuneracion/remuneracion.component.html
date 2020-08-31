@@ -4,6 +4,6 @@
    class="browser-default custom-select custom-select-sm"
    name="selectAniosCursado"
    [(ngModel)]="selected" (change)="seleccionar()">
-      <option *ngFor="let r of rangos" value="{{r.id}}">{{r.rango}}</option>
+      <option *ngFor="let r of rangos" value="{{r.monto}}">{{r.rango}}</option>
     </select>
 </div>

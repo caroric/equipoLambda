@@ -27,8 +27,9 @@ export const aniosCursado: any[] = [
 ]
 
 export const rangos: any[]=[
-  { rango: 'Entre $10000 y $20000', id:1},
-  { rango: 'Entre $20000 y $30000', id:2}
+  { rango: 'Mayor a $10000', monto:10000},
+  { rango: 'Mayor a $15000', monto:15000},
+  { rango: 'Mayor a $20000', monto:20000}
 ]
 
 /*

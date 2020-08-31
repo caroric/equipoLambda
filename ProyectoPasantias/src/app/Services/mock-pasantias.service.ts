@@ -8,7 +8,7 @@ export class MockPasantiasService {
   constructor() { }
 
   getPasantiasActivas(): Pasantia[]{
-    return [
+    /*return [
       {fechaInicioBusqueda:  new Date("2020-08-20"),
       fechaFinBusqueda:  new Date("2020-09-20"),
       razonSocial: 'Hexacta',
@@ -122,7 +122,7 @@ export class MockPasantiasService {
       seOfrece: 'Buen ambiente de trabajo',
       mail: 'luis@rinformaticos.com',
       sexo: 'Indistinto'},
-    ]
-    //return [];
+    ]*/
+    return [];
   }
 }
