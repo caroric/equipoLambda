@@ -43,7 +43,7 @@
       </div>
       <div class="container busqueda" *ngIf="tablaPasantias && pasantias.length !== 0">
          <app-palabras-clave (OutputPalabra)="receivePalabrasClave($event)"></app-palabras-clave>
-         <button>Buscar</button>
+         <button (click)="filtrarPasantias()">Buscar</button>
       </div>
       <app-lista-pasantias *ngIf="tablaPasantias && pasantias.length !== 0"
       [InputPasantias]="pasantias"

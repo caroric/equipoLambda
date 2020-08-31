@@ -44,11 +44,11 @@ export class HomeComponent implements OnInit {
   receivePalabrasClave($event){
     this.palabrasClave = $event;
     console.log('Palabras clave --> ' + this.palabrasClave);
-    this.pasantias = this.mockService.getPasantiasActivas();/*esto estoy seguro que va a haber que cambiarlo despues*/
-    this.filtrarPasantias();
   }
 
   filtrarPasantias(){
+    console.log("hola");
+    this.pasantias = this.mockService.getPasantiasActivas();/*esto estoy seguro que va a haber que cambiarlo despues*/
     this.pasantiasFiltradas = this.pasantias.filter(Pasantia => Pasantia.razonSocial.toLowerCase().includes(this.palabrasClave.toLowerCase()) 
     || Pasantia.perfil.toLowerCase().includes(this.palabrasClave.toLowerCase()) 
     || Pasantia.cargoACubrir.toLowerCase().includes(this.palabrasClave.toLowerCase()));
