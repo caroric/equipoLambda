@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { especialidades } from '../../../environments/environment';
+//import { especialidades } from '../../../environments/environment';
+import { PasantiasService } from '../../Services/pasantias.service';
+import { especialidad } from '../../Models/especialidad';
 
 @Component({
   selector: 'app-especialidades',
@@ -7,14 +9,24 @@ import { especialidades } from '../../../environments/environment';
   styleUrls: ['../select-style.css']
 })
 export class EspecialidadesComponent implements OnInit {
-  especialidades: any[] = especialidades;
+  //especialidades: any[] = especialidades;
+  especialidades: especialidad[] = [];
   selected: number;
 
   @Input() InputEspecialidad: number;
   @Output() OutputEspecialidad: EventEmitter<number> = new EventEmitter<number>();
-  constructor() { }
+  constructor(private servicePasantias: PasantiasService) { }
 
   ngOnInit(): void {
+    this.loadEspecialidad();
+  }
+
+  loadEspecialidad(){
+    this.servicePasantias.getEspecialidades()
+    .subscribe((response: any) => {
+      this.especialidades = response;
+      console.log('llamada a servicio')
+    });
   }
 
   seleccionar(){

@@ -5,7 +5,7 @@
    class="browser-default custom-select custom-select-sm"
    name="selectEspecialidades"
    [(ngModel)]="selected" (change)="seleccionar()">
-      <option value="{{esp.idEsp}}" *ngFor="let esp of especialidades">{{esp.especialidad}}</option>
+      <option value="{{esp.id_especialidad}}" *ngFor="let esp of especialidades">{{esp.nombre}}</option>
    </select>
 </div>
 

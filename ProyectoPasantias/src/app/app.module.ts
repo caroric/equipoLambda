@@ -11,6 +11,10 @@ import { RemuneracionComponent } from './Selects/remuneracion/remuneracion.compo
 import { PalabrasClaveComponent } from './Inputs/palabras-clave/palabras-clave.component';
 import { ListaPasantiasComponent } from './Tables/lista-pasantias/lista-pasantias.component';
 
+import { PasantiasService } from 'src/app/Services/pasantias.service';
+import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,9 +28,12 @@ import { ListaPasantiasComponent } from './Tables/lista-pasantias/lista-pasantia
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    PasantiasService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
