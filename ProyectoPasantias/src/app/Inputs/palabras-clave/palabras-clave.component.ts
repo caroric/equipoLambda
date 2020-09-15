@@ -12,4 +12,5 @@ export class PalabrasClaveComponent {
   sendPalabrasClave(event){
     this.OutputPalabra.emit(event.target.value);
   }
+
 }

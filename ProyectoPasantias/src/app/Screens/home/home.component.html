@@ -48,6 +48,13 @@
       </div>
    </div>
    <div>
+      <div class="container busqueda">
+         <app-palabras-clave (OutputPalabra)="receivePalabrasClave($event)"></app-palabras-clave>   
+         <!--
+<button (click)="filtrarPasantias()">Buscar</button>  
+         -->
+          
+      </div>
       <app-lista-pasantias
       [InputPasantias]="pasantias"
       (OutputDatos)="receiveNotificacion($event)">
