@@ -45,13 +45,17 @@ export class HomeComponent implements OnInit {
   receivePalabrasClave($event){
     this.palabrasClave = $event;
     console.log('Palabras clave --> ' + this.palabrasClave);
-    this.filtrarPasantias();
+    //this.filtrarPasantias();
   }
 
   receiveNotificacion($event){
     this.inicio = $event;
     console.log('var inicio--> ' + this.inicio)
     console.log(this.inicio);
+  }
+
+  volverAListadoAnterior(){
+    this.buscarPasantias();
   }
 
   filtrarPasantias(){
