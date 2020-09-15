@@ -87,3 +87,45 @@
   background-size: cover;
   -o-background-size: cover;
 }
+
+@media only screen and (max-width: 600px) and (min-width: 450px){
+  .form-sm{
+    display: inline-grid;
+  }
+  .container{
+    width: fit-content;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
+@media only screen and (max-width: 450px){
+  .container{
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;;
+    margin-top: 0px;
+  }
+
+  body{
+    width: 100%;
+  }
+
+  .form-sm{
+    display: inline-grid;
+  }
+  .container-title{
+    font-size: xx-large;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .sinDatos{
+    font-size: smaller;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: auto;
+  }
+}

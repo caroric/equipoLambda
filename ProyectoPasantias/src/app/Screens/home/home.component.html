@@ -1,7 +1,8 @@
 <body>
    <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-         <a class="navbar-brand" href="#">Pasantías FRC</a>
+         <a class="navbar-brand" href="/home">Pasantías FRC</a>
+         <!--
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
          </button>
@@ -18,39 +19,49 @@
                </li>
             </ul>
          </div>
+         -->
          </nav>
    </div>
-   
-   <div>
+
+   <div *ngIf="inicio">
       <!--Filtros de búsqueda-->
-      <div class="container" *ngIf="(mostrarFiltros) || (tablaPasantias && pasantias.length === 0) ">
+      <div class="container container-sm">
          <h2 class="container-title">Pasantías activas</h2>
-         <form>
-            <app-especialidades (OutputEspecialidad)="receiveEspecialidad($event)"></app-especialidades>
-            <app-anio-alumno (OutputAnio)="receiveAnioCursado($event)"></app-anio-alumno>
-            <app-remuneracion (OutputRemuneracion)="receiveRemuneracion($event)"></app-remuneracion>
+         <form class="busqueda form-sm">
+            <div class="col-sm-3 col-md-3">
+               <app-especialidades (OutputEspecialidad)="receiveEspecialidad($event)"></app-especialidades>
+            </div>
+            <div class="col-sm-3 col-md-3">
+               <app-anio-alumno (OutputAnio)="receiveAnioCursado($event)"></app-anio-alumno>
+            </div>
+            <div class="col-sm-3 col-md-3">
+               <app-remuneracion (OutputRemuneracion)="receiveRemuneracion($event)"></app-remuneracion>
+            </div>
             <button type="button" (click)="buscarPasantias()">
                Buscar
             </button>
          </form>
       </div>
-   </div>
-   
-   <!--Tabla pasantías-->
-   <div>
-      <div *ngIf="tablaPasantias && pasantias.length === 0" class="sinDatos alert alert-warning" role="alert">
+       <!--Tabla pasantías-->
+      <div *ngIf="sinPasantiasActivas" class="sinDatos alert alert-warning" role="alert">
          Lo sentimos, no hay pasantías activas en este momento.
       </div>
-      <div class="container busqueda" *ngIf="tablaPasantias && pasantias.length !== 0">
-         <app-palabras-clave (OutputPalabra)="receivePalabrasClave($event)"></app-palabras-clave>
-         <button (click)="filtrarPasantias()">Buscar</button>
-      </div>
-      <app-lista-pasantias *ngIf="tablaPasantias && pasantias.length !== 0"
+   </div>
+   <div>
+      <app-lista-pasantias
       [InputPasantias]="pasantias"
-      ></app-lista-pasantias>
-   </div> 
+      (OutputDatos)="receiveNotificacion($event)">
+      </app-lista-pasantias>
+   </div>
    
 </body>
+<!--
+<div class="container busqueda">
+   <app-palabras-clave (OutputPalabra)="receivePalabrasClave($event)"></app-palabras-clave>
+   <button (click)="filtrarPasantias()">Buscar</button>
+</div>
+-->
+
 
 
  

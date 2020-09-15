@@ -1,3 +1,4 @@
+import { sucursalxempresa } from './sucursalxempresa';
 export class formularioarm{
    id_arm: number;
    cantidadPasantes: number;
@@ -22,4 +23,5 @@ export class formularioarm{
    id_cantidadAños: number;
    id_estado: number;
    id_sucursal: number;
+   sucursal: sucursalxempresa;
 }

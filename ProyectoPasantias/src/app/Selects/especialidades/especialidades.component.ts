@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-//import { especialidades } from '../../../environments/environment';
 import { PasantiasService } from '../../Services/pasantias.service';
 import { especialidad } from '../../Models/especialidad';
 
@@ -9,7 +8,6 @@ import { especialidad } from '../../Models/especialidad';
   styleUrls: ['../select-style.css']
 })
 export class EspecialidadesComponent implements OnInit {
-  //especialidades: any[] = especialidades;
   especialidades: especialidad[] = [];
   selected: number;
 

@@ -1,6 +1,7 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { Pasantia } from '../../Models/Pasantia';
-import { MockPasantiasService } from '../../Services/mock-pasantias.service';
+import { Component, OnInit } from '@angular/core';
+//import { Pasantia } from '../../Models/Pasantia';
+import { PasantiasService } from '../../Services/pasantias.service';
+import { especialidadxarm } from '../../Models/especialidadxarm';
 
 @Component({
   selector: 'app-home',
@@ -9,21 +10,20 @@ import { MockPasantiasService } from '../../Services/mock-pasantias.service';
 })
 export class HomeComponent implements OnInit {
   //Variables para manejo de pantalla.
-  mostrarFiltros: boolean = false;
-  tablaPasantias: boolean = false;
-
+  inicio= true;
+  sinPasantiasActivas = false;
   //Variables de datos.
-  idEspecialidad: number;
-  idAnio: number;
-  idRango: number;
-  pasantias: Pasantia[] = [];
+  idEspecialidad: number=0;
+  idAnio: number=0;
+  remuneracion: number =0;
+  pasantias: especialidadxarm[] = [];
   palabrasClave: string;
-  pasantiasFiltradas: Pasantia[] = [];
-
-  constructor(private mockService: MockPasantiasService) { }
+  pasantiasFiltradas: especialidadxarm[] = [];
+  constructor(private servicePasantias: PasantiasService) { }
 
   ngOnInit(): void {
-    this.pasantias = this.mockService.getPasantiasActivas();
+    this.buscarPasantias();
+    //this.sinPasantiasActivas = true;
   }
 
   receiveEspecialidad($event){
@@ -37,8 +37,9 @@ export class HomeComponent implements OnInit {
   }
 
   receiveRemuneracion($event){
-    this.idRango = $event;
-    console.log('Home/remuneracion --> ' + this.idRango);
+    this.remuneracion = $event;
+    console.log('Home/remuneracion --> ' + this.remuneracion
+    );
   }
 
   receivePalabrasClave($event){
@@ -46,25 +47,38 @@ export class HomeComponent implements OnInit {
     console.log('Palabras clave --> ' + this.palabrasClave);
   }
 
-  filtrarPasantias(){
-    this.pasantias = this.mockService.getPasantiasActivas();
-    this.pasantiasFiltradas = this.pasantias.filter(Pasantia => Pasantia.razonSocial.toLowerCase().includes(this.palabrasClave.toLowerCase()) 
-    || Pasantia.perfil.toLowerCase().includes(this.palabrasClave.toLowerCase()) 
-    || Pasantia.cargoACubrir.toLowerCase().includes(this.palabrasClave.toLowerCase()));
-    this.pasantias = this.pasantiasFiltradas;
-    console.log(this.pasantiasFiltradas);
-    console.log(this.pasantias);
+  receiveNotificacion($event){
+    this.inicio = $event;
+    console.log('var inicio--> ' + this.inicio)
+    console.log(this.inicio);
   }
 
+  filtrarPasantias(){
+    this.servicePasantias.getPasantiasConFiltro(this.idEspecialidad, this.idAnio, this.remuneracion)
+    .subscribe((response: any) => {
+      this.pasantias = response;
+      this.pasantiasFiltradas = this.pasantias.filter(Pasantia => Pasantia.formularioarm.sucursal.nombre_sucursal.toLowerCase().includes(this.palabrasClave.toLowerCase()) 
+      || Pasantia.formularioarm.perfilSolicitado.toLowerCase().includes(this.palabrasClave.toLowerCase()) 
+      || Pasantia.formularioarm.cargoACubrir.toLowerCase().includes(this.palabrasClave.toLowerCase()));
+      this.pasantias = this.pasantiasFiltradas;
+    });
+  }
 
   mostrarTabla(){
-    this.tablaPasantias = false;
-    this.mostrarFiltros = true;
+    this.servicePasantias.getPasantiasConFiltro(this.idEspecialidad, this.idAnio, this.remuneracion)
+    .subscribe((response: any) => {
+      this.pasantias = response;
+    });
   }
 
   buscarPasantias(){
-    this.mostrarFiltros= false;
-    this.tablaPasantias = true;
+    console.log('especialidad--> '+this.idEspecialidad)
+    this.servicePasantias.getPasantiasConFiltro(this.idEspecialidad, this.idAnio, this.remuneracion)
+    .subscribe((response:any) => {
+      console.log('PASANTIAS');
+      this.pasantias = response;
+      if(this.pasantias.length === 0){ this.sinPasantiasActivas=true;}
+    });
   }
 
   verDatosPasantia(pasantia: any){

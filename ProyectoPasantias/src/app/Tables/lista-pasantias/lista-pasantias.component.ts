@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Pasantia } from '../../Models/Pasantia';
-
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+//import { Pasantia } from '../../Models/Pasantia';
+import { especialidadxarm } from '../../Models/especialidadxarm';
 
 @Component({
   selector: 'app-lista-pasantias',
@@ -8,11 +8,12 @@ import { Pasantia } from '../../Models/Pasantia';
   styleUrls: ['./lista-pasantias.component.css']
 })
 export class ListaPasantiasComponent implements OnInit {
-  @Input() InputPasantias: Pasantia[] = [];
-
+  @Input() InputPasantias: especialidadxarm[] = [];
+  @Output() OutputDatos: EventEmitter<boolean> = new EventEmitter<boolean>();
   verPasantias: boolean=true;
   verInfoPasantia: boolean = false;
-  pasantiaSeleccionada: Pasantia;
+  item: any;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -20,16 +21,19 @@ export class ListaPasantiasComponent implements OnInit {
   }
 
   verDatosPasantia(pas: any){
-    this.pasantiaSeleccionada = pas;
+    this.item = pas.formularioarm;
     this.verPasantias = false;
     this.verInfoPasantia = true;
     console.log('Pasantia --> ');
-    console.log(pas)
+    console.log(pas);
+    
+    this.OutputDatos.emit(false);
   }
 
   volver(){
     this.verInfoPasantia = false;
     this.verPasantias = true;
+    this.OutputDatos.emit(true);
   }
 
 }
