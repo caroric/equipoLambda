@@ -1,6 +1,6 @@
  input{
   margin-left: 10px;
-  width: 250px;
+  width: 350px;
   margin-top: 5px;
  }
  form label{
@@ -25,4 +25,19 @@ button{
   padding-top: 4px;
   padding-bottom: 4px;
   margin-left:25px;
+}
+
+@media only screen and (max-width: 450px){
+  input{
+    width: 250px;
+    margin-right: 2px;
+    margin-top: 12px;
+    margin-bottom: 5px;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 450px){
+  input{
+    width: 200px;
+  }
 }

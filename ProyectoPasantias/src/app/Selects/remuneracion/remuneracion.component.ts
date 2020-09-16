@@ -16,6 +16,12 @@ export class RemuneracionComponent implements OnInit {
 
   ngOnInit(): void {
   }
+/*
+  ngOnChanges() {
+    if(this.InputRemuneracion === 0){
+      this.selected = 0;
+    }
+  }*/
 
   seleccionar(){
     this.OutputRemuneracion.emit(+this.selected);

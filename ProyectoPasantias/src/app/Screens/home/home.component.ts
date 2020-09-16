@@ -22,30 +22,33 @@ export class HomeComponent implements OnInit {
   constructor(private servicePasantias: PasantiasService) { }
 
   ngOnInit(): void {
-    this.buscarPasantias();
+    this.loadPasantias();
     //this.sinPasantiasActivas = true;
   }
 
   receiveEspecialidad($event){
     this.idEspecialidad = $event;
     console.log('Home/especialidad --> ' + this.idEspecialidad);
+    this.filtrarPasantias();
   }
 
   receiveAnioCursado($event){
     this.idAnio = $event;
     console.log('Home/año cursado --> ' + this.idAnio);
+    this.filtrarPasantias();
   }
 
   receiveRemuneracion($event){
     this.remuneracion = $event;
     console.log('Home/remuneracion --> ' + this.remuneracion
     );
+    this.filtrarPasantias();
   }
 
   receivePalabrasClave($event){
     this.palabrasClave = $event;
     console.log('Palabras clave --> ' + this.palabrasClave);
-    //this.filtrarPasantias();
+    this.buscarPorPalabraClave();
   }
 
   receiveNotificacion($event){
@@ -54,11 +57,7 @@ export class HomeComponent implements OnInit {
     console.log(this.inicio);
   }
 
-  volverAListadoAnterior(){
-    this.buscarPasantias();
-  }
-
-  filtrarPasantias(){
+  buscarPorPalabraClave(){
     this.servicePasantias.getPasantiasConFiltro(this.idEspecialidad, this.idAnio, this.remuneracion)
     .subscribe((response: any) => {
       this.pasantias = response;
@@ -76,7 +75,19 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  buscarPasantias(){
+  filtrarPasantias(){
+    this.servicePasantias.getPasantiasConFiltro(this.idEspecialidad, this.idAnio, this.remuneracion)
+    .subscribe((response:any) => {
+      console.log('PASANTIAS');
+      this.pasantias = response;
+      if(this.pasantias.length === 0){ this.sinPasantiasActivas=true;}
+      else{
+        if(this.sinPasantiasActivas){ this.sinPasantiasActivas = false;}
+      }
+    });
+  }
+
+  loadPasantias(){
     console.log('especialidad--> '+this.idEspecialidad)
     this.servicePasantias.getPasantiasConFiltro(this.idEspecialidad, this.idAnio, this.remuneracion)
     .subscribe((response:any) => {
@@ -90,4 +101,5 @@ export class HomeComponent implements OnInit {
     console.log('ver pasantia');
     console.log(pasantia);
   }
+
 }

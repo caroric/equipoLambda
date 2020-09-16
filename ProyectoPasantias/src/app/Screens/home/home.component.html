@@ -28,18 +28,15 @@
       <div class="container container-sm">
          <h2 class="container-title">Pasantías activas</h2>
          <form class="busqueda form-sm">
-            <div class="col-sm-3 col-md-3">
+            <div class="col-sm-4 col-md-4">
                <app-especialidades (OutputEspecialidad)="receiveEspecialidad($event)"></app-especialidades>
             </div>
-            <div class="col-sm-3 col-md-3">
+            <div class="col-sm-4 col-md-4">
                <app-anio-alumno (OutputAnio)="receiveAnioCursado($event)"></app-anio-alumno>
             </div>
-            <div class="col-sm-3 col-md-3">
+            <div class="col-sm-4 col-md-4">
                <app-remuneracion (OutputRemuneracion)="receiveRemuneracion($event)"></app-remuneracion>
             </div>
-            <button type="button" (click)="buscarPasantias()">
-               Buscar
-            </button>
          </form>
       </div>
        <!--Tabla pasantías-->
@@ -48,18 +45,10 @@
       </div>
    </div>
    <div>
-      <div *ngIf="inicio" class="container busqueda">
+      <div *ngIf="inicio && !sinPasantiasActivas" class="container busqueda">
          <app-palabras-clave (OutputPalabra)="receivePalabrasClave($event)"></app-palabras-clave>   
-         <div>
-            <button  class="icon-button" (click)="filtrarPasantias()">
-               <i class="fas fa-search"></i>
-            </button>
-            <button  class="icon-button" (click)="volverAListadoAnterior()">
-               <i class="fas fa-undo-alt"></i>
-            </button>    
-         </div>
       </div>
-      <app-lista-pasantias
+      <app-lista-pasantias *ngIf="!sinPasantiasActivas"
       [InputPasantias]="pasantias"
       (OutputDatos)="receiveNotificacion($event)">
       </app-lista-pasantias>

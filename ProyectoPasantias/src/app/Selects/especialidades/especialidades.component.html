@@ -6,6 +6,7 @@
    name="selectEspecialidades"
    [(ngModel)]="selected" (change)="seleccionar()">
       <option value="{{esp.id_especialidad}}" *ngFor="let esp of especialidades">{{esp.nombre}}</option>
+      <option value="0">--No aplica--</option>
    </select>
 </div>
 

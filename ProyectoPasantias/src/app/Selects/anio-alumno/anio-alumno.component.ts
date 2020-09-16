@@ -20,6 +20,7 @@ export class AnioAlumnoComponent implements OnInit {
     this.loadAnios();
   }
 
+
   loadAnios(){
     this.servicePasantia.getAniosPasante()
     .subscribe((response: any) => {
