@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let pas of InputPasantias">
+        <tr *ngFor="let pas of InputPasantias | paginate: { itemsPerPage: 10, currentPage: pageActual}" >
           <td>{{pas.formularioarm.fehcaAlta | date: 'shortDate' | date: 'dd/MM/yyyy'}}</td>
           <td>{{pas.formularioarm.sucursal.nombre_sucursal}}</td>
           <td>{{pas.formularioarm.perfilSolicitado}}</td>
@@ -25,6 +25,7 @@
         </tr>
       </tbody>
     </table>
+    <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
 </div>
 
 <!--Datos de pasantía seleccionada-->

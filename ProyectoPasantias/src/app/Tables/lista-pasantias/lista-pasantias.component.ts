@@ -13,6 +13,7 @@ export class ListaPasantiasComponent implements OnInit {
   verPasantias: boolean=true;
   verInfoPasantia: boolean = false;
   item: any;
+  pageActual: number = 1;
 
   constructor() { }
 
