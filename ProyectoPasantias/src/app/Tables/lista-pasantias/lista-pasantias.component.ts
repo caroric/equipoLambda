@@ -10,6 +10,7 @@ import { especialidadxarm } from '../../Models/especialidadxarm';
 export class ListaPasantiasComponent implements OnInit {
   @Input() InputPasantias: especialidadxarm[] = [];
   @Output() OutputDatos: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() OutputSolicitud: EventEmitter<boolean> = new EventEmitter<boolean>();
   verPasantias: boolean=true;
   verInfoPasantia: boolean = false;
   item: any;
@@ -37,4 +38,7 @@ export class ListaPasantiasComponent implements OnInit {
     this.OutputDatos.emit(true);
   }
 
+  solicitarPedidoPasantia(){
+    this.OutputSolicitud.emit(false);
+  }
 }

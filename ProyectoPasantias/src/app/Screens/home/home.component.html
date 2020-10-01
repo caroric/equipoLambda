@@ -39,7 +39,7 @@
             </div>
          </form>
       </div>
-       <!--Tabla pasantías-->
+<!--Tabla pasantías-->
       <div *ngIf="sinPasantiasActivas" class="sinDatos alert alert-warning" role="alert">
          Lo sentimos, no hay pasantías activas en este momento.
       </div>
@@ -48,10 +48,25 @@
       <div *ngIf="inicio && !sinPasantiasActivas" class="container busqueda">
          <app-palabras-clave (OutputPalabra)="receivePalabrasClave($event)"></app-palabras-clave>   
       </div>
-      <app-lista-pasantias *ngIf="!sinPasantiasActivas"
+      <app-lista-pasantias *ngIf="!sinPasantiasActivas && verTabla"
       [InputPasantias]="pasantias"
-      (OutputDatos)="receiveNotificacion($event)">
+      (OutputDatos)="receiveNotificacion($event)"
+      (OutputSolicitud)="receiveNotificacionSolicitud($event)">
       </app-lista-pasantias>
+   </div>
+
+   <!--Solicitud de legajo para registrar pasantías-->
+   <div class="container container-sm" *ngIf="solicitarLegajoAlumno">
+      <legajo (OutputLegajo)="receiveLegajo($event)"></legajo>
+      <button (click)="buscarLegajo()">
+         <i class="fas fa-search"></i>  Buscar
+      </button>
+      <button (click)="volverAlHome()">
+         <i class="fa fa-arrow-left" aria-hidden="true"></i>  Regresar
+      </button>
+   </div>
+   <div *ngIf="!legajoExistente" class="sinDatos alert alert-warning" role="alert">
+      El legajo ingresado no corresponde a un alumno de nuestra facultad.
    </div>
 </body>
 

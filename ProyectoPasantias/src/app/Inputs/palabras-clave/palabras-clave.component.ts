@@ -3,7 +3,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-palabras-clave',
   templateUrl: './palabras-clave.component.html',
-  styleUrls: ['./palabras-clave.component.css']
+  styleUrls: ['../inputs-style.css']
 })
 export class PalabrasClaveComponent {
   palabras: string;

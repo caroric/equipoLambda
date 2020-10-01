@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 //import { Pasantia } from '../../Models/Pasantia';
 import { PasantiasService } from '../../Services/pasantias.service';
 import { especialidadxarm } from '../../Models/especialidadxarm';
+import { MockAlumnosService } from '../../Services/mock-alumnos.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,9 @@ import { especialidadxarm } from '../../Models/especialidadxarm';
 export class HomeComponent implements OnInit {
   //Variables para manejo de pantalla.
   inicio= true;
+  verTabla=true;
   sinPasantiasActivas = false;
+  solicitarLegajoAlumno = false;
   //Variables de datos.
   idEspecialidad: number=0;
   idAnio: number=0;
@@ -19,7 +22,11 @@ export class HomeComponent implements OnInit {
   pasantias: especialidadxarm[] = [];
   palabrasClave: string;
   pasantiasFiltradas: especialidadxarm[] = [];
-  constructor(private servicePasantias: PasantiasService) { }
+
+  legajo: string;
+  legajoExistente: boolean = true;
+  constructor(private servicePasantias: PasantiasService,
+              private mockAlumnos: MockAlumnosService) { }
 
   ngOnInit(): void {
     this.loadPasantias();
@@ -53,6 +60,14 @@ export class HomeComponent implements OnInit {
 
   receiveNotificacion($event){
     this.inicio = $event;
+    console.log('var inicio--> ' + this.inicio)
+    console.log(this.inicio);
+  }
+
+  receiveNotificacionSolicitud($event){
+    this.inicio = $event;
+    this.verTabla = false;
+    this.solicitarLegajoAlumno = true;
     console.log('var inicio--> ' + this.inicio)
     console.log(this.inicio);
   }
@@ -102,4 +117,37 @@ export class HomeComponent implements OnInit {
     console.log(pasantia);
   }
 
+  volverAlHome(){
+    this.solicitarLegajoAlumno = false;
+    this.inicio = true;
+    this.verTabla = true;
+  }
+
+  receiveLegajo($event){
+    this.legajo = $event;
+    console.log('-->Legajo: ' + this.legajo);
+  }
+
+  buscarLegajo(){
+    let alumnos = this.mockAlumnos.getAlumnos();
+    console.log('BUSCAR ALUMNOS');
+    console.log(alumnos);
+    
+    let alumno: any;
+    alumnos.forEach((al) => {
+      if(al.legajo === this.legajo){
+        alumno = al;
+      }
+    });
+
+    if(alumno){
+      this.legajoExistente = true;
+      console.log('EXITO. SE HA ENCONTRADO EL LEGAJO');
+      console.log(alumno);
+    }
+    else{
+      this.legajoExistente = false;
+      console.log('ERROR. NO SE ENCONTRÓ EL LEGAJO.')
+    }
+  }
 }

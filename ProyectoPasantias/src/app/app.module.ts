@@ -14,6 +14,7 @@ import { ListaPasantiasComponent } from './Tables/lista-pasantias/lista-pasantia
 
 import { PasantiasService } from 'src/app/Services/pasantias.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LegajoComponent } from './Inputs/legajo/legajo.component';
 
 
 
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     AnioAlumnoComponent,
     RemuneracionComponent,
     PalabrasClaveComponent,
-    ListaPasantiasComponent
+    ListaPasantiasComponent,
+    LegajoComponent
   ],
   imports: [
     BrowserModule,
