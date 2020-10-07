@@ -2,7 +2,7 @@
    <div>
       <!--Navbar-->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-         <a class="navbar-brand" routerLink="/home">Pasantías FRC</a>
+         <a class="navbar-brand" routerLink="/">Pasantías FRC</a>
          <!--
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -11,7 +11,7 @@
          <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                <li class="nav-item">
-               <a class="nav-link" routerLink="procesarPasantias">Gestionar pasantías</a>
+               <a class="nav-link disabled" routerLink="procesarPasantias">Gestionar pasantías</a>
                </li>
             </ul>
          </div>
@@ -19,19 +19,29 @@
    </div>
 
    <!--Solicitud de legajo para gestionar pasantías-->
-   <div class="container container-sm">
+   <div *ngIf="containerLegajo" class="container container-sm">
       <h2 class="container-title">Gestionar pasantías</h2>
-      <!--
       <legajo (OutputLegajo)="receiveLegajo($event)"></legajo>
       <button (click)="buscarLegajo()">
          <i class="fas fa-search"></i>  Buscar
       </button>
-      <button (click)="volverAlHome()">
+      <button>
          <i class="fa fa-arrow-left" aria-hidden="true"></i>  Regresar
       </button>
-      -->
    </div>
    <div *ngIf="!legajoExistente" class="sinDatos alert alert-warning" role="alert">
       El legajo ingresado no corresponde a nuestra facultad.
+   </div>
+
+
+   <!--Tabla de pedidos de pasantías-->
+   <div *ngIf="verTabla">
+      <div class="container container-sm">
+         <h2 class="container-title">Gestionar pasantías</h2>
+         <p>Info empleado logueado</p>
+      </div>
+      <app-pedidos-pasantia
+      [InputPedidos]="pedidosPasantia">
+      </app-pedidos-pasantia>
    </div>
 </body>

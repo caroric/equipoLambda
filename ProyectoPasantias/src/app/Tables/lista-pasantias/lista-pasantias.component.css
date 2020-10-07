@@ -14,6 +14,7 @@
 thead{
   background-color: #4D67B7;
   color: #ffffff;
+  text-align: center;
 }
 
 .datos{
@@ -38,6 +39,10 @@ button{
    padding-top: 4px;
    padding-bottom: 4px;
    margin-left:25px;
+}
+
+a{
+  padding-left: 4px;
 }
 
 @media only screen and (max-width: 600px) and (min-width: 450px){

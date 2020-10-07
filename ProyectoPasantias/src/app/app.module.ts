@@ -16,6 +16,8 @@ import { PasantiasService } from 'src/app/Services/pasantias.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProcesarPasantiasComponent } from './Screens/procesar-pasantias/procesar-pasantias.component';
 import { LegajoComponent } from './Inputs/legajo/legajo.component';
+import { PedidosPasantiaComponent } from './Tables/pedidos-pasantia/pedidos-pasantia.component';
+import { ComentariosComponent } from './Inputs/comentarios/comentarios.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { LegajoComponent } from './Inputs/legajo/legajo.component';
     PalabrasClaveComponent,
     ListaPasantiasComponent,
     ProcesarPasantiasComponent,
-    LegajoComponent
+    LegajoComponent,
+    PedidosPasantiaComponent,
+    ComentariosComponent
   ],
   imports: [
     BrowserModule,
