@@ -17,8 +17,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProcesarPasantiasComponent } from './Screens/procesar-pasantias/procesar-pasantias.component';
 import { LegajoComponent } from './Inputs/legajo/legajo.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
