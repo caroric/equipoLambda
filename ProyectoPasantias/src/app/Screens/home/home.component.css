@@ -1,90 +1,83 @@
 .container {
-   margin-top: 25px;
-   padding-left: 10px;
-   padding-right: 10px;
-   border-radius: 5px;
-   background-color: #ffffff;
- }
+  margin-top: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
 /*esto deberia hacer andar la foto de fondo*/
- body{
+body{
   background-image: url("../../../assets/img/UTN.png");
- /* width: 1400px;*/
+/* width: 1400px;*/
   height: 1080px;
 }
 
- .background{
-   background-image: url("../../../assets/img/UTN.png");
-   height: 100%; 
-   /* Center and scale the image nicely */
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-   margin-top: 0px;
- }
+.background{
+  background-image: url("../../../assets/img/UTN.png");
+  height: 100%; 
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 0px;
+}
 
- .container-title{
-    background-color: #4D67B7;
-    color: #ffffff;
-    margin-top: 0px;
-    margin-bottom: 3px;
-    margin-left: 15px;
-    margin-right: 15px;
-    font-family: sans-serif;
-    text-align: center;
-    height: 50px;
- }
+.container-title{
+  background-color: #4D67B7;
+  color: #ffffff;
+  margin-top: 0px;
+  margin-bottom: 3px;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-family: sans-serif;
+  text-align: center;
+  height: 50px;
+}
 
- .icon-button{
+.icon-button{
   margin-bottom: 0px;
   margin-top: 2px;
- }
-
- button{
-   background-color: #4D67B7;
-   color: #ffffff;
-   font-family: sans-serif;
-   font-size: large;
-   border-radius: 5px;
-   border-style: none;
-   margin-top: 15px;
-   margin-bottom: 15px;
-   padding-left: 25px;
-   padding-right: 25px;
-   padding-top: 4px;
-   padding-bottom: 4px;
-   margin-left:25px;
- }
-
- /*.busqueda{
-  font-size: medium;
-  display: flex;
-  color: #6495ed;
 }
-*/
 
- form{
-   display: flex;
- }
+button{
+  background-color: #4D67B7;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: large;
+  border-radius: 5px;
+  border-style: none;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin-left:25px;
+}
 
- .sinDatos{
-  margin-top: 20px;
-  margin-left: 100px;
-  margin-right: 100px;
-  height: 50px;
-  font-size: larger;
-  text-align: center;
- }
+form{
+  display: flex;
+}
 
- form label{
-   padding-top: 8px;
- }
+.sinDatos{
+margin-top: 20px;
+margin-left: 100px;
+margin-right: 100px;
+height: 50px;
+font-size: larger;
+text-align: center;
+}
 
- thead{
-   background-color: #4D67B7;
-   color: #ffffff;
- }
+form label{
+  padding-top: 8px;
+}
 
- body {
+thead{
+  background-color: #4D67B7;
+  color: #ffffff;
+}
+
+body {
   background: url("../../../assets/img/UTN.png") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;

@@ -24,7 +24,7 @@
             <button type="button" class="btn btn-danger" (click)="rechazarSolicitud()">
                <i class="far fa-times-circle"></i>  Rechazar
             </button>
-            <button>
+            <button class="btn-comun">
                <i class="fas fa-clipboard-list"></i>  Info
             </button>
          </td>
@@ -35,8 +35,8 @@
 </div>
 
 <!--Notificacion de solicitud aceptada-->
-<div *ngIf="notificacionEnviada" class="alert alert-primary" role="alert">
-   Se han notificado a los interesados.
+<div *ngIf="notificacionEnviada" class="alerta alert alert-primary" role="alert">
+   Se ha notificado a los interesados.
 </div>
 
 <!-- Denegación de solicitud-->
@@ -44,10 +44,10 @@
 <app-comentarios
 (OutputComentarios)="receiveComentarios($event)">
 </app-comentarios>
-<button (click)="confirmar()">
-   <i class="far fa-check-circle"></i>Confirmar
+<button class="btn-comun" (click)="confirmar()">
+   <i class="far fa-check-circle"></i>  Confirmar
 </button>
-<button (click)="volver()">
-   Cancelar
+<button class="btn-comun" (click)="volver()">
+   <i class="far fa-times-circle"></i>  Cancelar
 </button>
 </div>

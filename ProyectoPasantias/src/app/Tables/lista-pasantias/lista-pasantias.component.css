@@ -26,19 +26,33 @@ thead{
 }
 
 button{
+  /*background-color: #4D67B7;
+  color: #ffffff;*/
+  font-family: sans-serif;
+  font-size: large;
+  border-radius: 5px;
+  border-style: none;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin-left:25px;
+}
+
+.btn-comun{
   background-color: #4D67B7;
-   color: #ffffff;
-   font-family: sans-serif;
-   font-size: large;
-   border-radius: 5px;
-   border-style: none;
-   margin-top: 15px;
-   margin-bottom: 15px;
-   padding-left: 25px;
-   padding-right: 25px;
-   padding-top: 4px;
-   padding-bottom: 4px;
-   margin-left:25px;
+  color: #ffffff;
+}
+
+.alerta{
+  margin-top: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  height: 50px;
+  font-size: larger;
+  text-align: center;
 }
 
 a{
@@ -49,9 +63,9 @@ a{
   .table{
     font-size: smaller;
   }
- .container-table{
-   width: auto;
- }
+  .container-table{
+    width: auto;
+  }
 }
 
 @media only screen and (max-width: 450px) {
@@ -61,4 +75,4 @@ a{
     font-size: smaller;
     
   }
- }
+}
