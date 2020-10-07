@@ -1,0 +1,51 @@
+input{
+   margin-left: 10px;
+   width: 350px;
+   margin-top: 5px;
+  }
+  form label{
+   padding-top: 8px;
+   padding-left: 5px;
+ }
+ 
+ form{
+   display: flex;
+   color: #6495ed;
+ }
+ 
+ button{
+   background-color: #4D67B7;
+   color: #ffffff;
+   font-family: sans-serif;
+   font-size: large;
+   border-radius: 5px;
+   border-style: none;
+   margin-top: 15px;
+   margin-bottom: 15px;
+   padding-left: 25px;
+   padding-right: 25px;
+   padding-top: 4px;
+   padding-bottom: 4px;
+   margin-left:25px;
+ }
+ 
+ @media only screen and (max-width: 450px){
+   input{
+     width: 250px;
+     margin-right: 2px;
+     margin-top: 12px;
+     margin-bottom: 5px;
+   }
+ }
+ 
+ @media only screen and (max-width: 600px) and (min-width: 450px){
+   input{
+     width: 200px;
+   }
+ }
+ 
+ @media only screen and (max-width: 290px){
+   input{
+     width: 150px;
+   }
+ }
