@@ -11,6 +11,7 @@ export class ListaPasantiasComponent implements OnInit {
   @Input() InputPasantias: especialidadxarm[] = [];
   @Output() OutputDatos: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() OutputSolicitud: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() OutputPasantia: EventEmitter<any> = new EventEmitter<any>();
   verPasantias: boolean=true;
   verInfoPasantia: boolean = false;
   item: any;
@@ -38,7 +39,8 @@ export class ListaPasantiasComponent implements OnInit {
     this.OutputDatos.emit(true);
   }
 
-  solicitarPedidoPasantia(){
+  solicitarPedidoPasantia(pasantia: any){
     this.OutputSolicitud.emit(false);
+    this.OutputPasantia.emit(pasantia);
   }
 }

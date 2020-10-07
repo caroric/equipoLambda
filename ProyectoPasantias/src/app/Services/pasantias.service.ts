@@ -13,6 +13,7 @@ export class PasantiasService {
   apiUrl: string;
   constructor(private http: HttpClient) {
     this.apiUrl = 'https://localhost:5001/api/home'
+    //this.apiUrl='http://40.124.53.142/api/home'
    }
   httpOptions = {
     headers: new HttpHeaders({

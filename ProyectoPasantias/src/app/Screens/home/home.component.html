@@ -51,12 +51,17 @@
       <app-lista-pasantias *ngIf="!sinPasantiasActivas && verTabla"
       [InputPasantias]="pasantias"
       (OutputDatos)="receiveNotificacion($event)"
-      (OutputSolicitud)="receiveNotificacionSolicitud($event)">
+      (OutputSolicitud)="receiveNotificacionSolicitud($event)"
+      (OutputPasantia)="receivePasantia($event)">
       </app-lista-pasantias>
    </div>
 
    <!--Solicitud de legajo para registrar pasantías-->
    <div class="container container-sm" *ngIf="solicitarLegajoAlumno">
+      <h2 class="container-title">Solicitud de pasantía</h2>
+      <div class="sinDatos alert alert-info" role="alert">
+         <strong>Atención:</strong> Usted se está por postular para una pasantía en la empresa {{pasantiaSeleccionada.formularioarm.sucursal.empresa.razon_social}}.
+       </div>
       <legajo (OutputLegajo)="receiveLegajo($event)"></legajo>
       <button (click)="buscarLegajo()">
          <i class="fas fa-search"></i>  Buscar

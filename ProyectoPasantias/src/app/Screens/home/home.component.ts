@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
 
   legajo: string;
   legajoExistente: boolean = true;
+  pasantiaSeleccionada: any;
   constructor(private servicePasantias: PasantiasService,
               private mockAlumnos: MockAlumnosService) { }
 
@@ -70,6 +71,12 @@ export class HomeComponent implements OnInit {
     this.solicitarLegajoAlumno = true;
     console.log('var inicio--> ' + this.inicio)
     console.log(this.inicio);
+  }
+
+  receivePasantia($event){
+    this.pasantiaSeleccionada = $event;
+    console.log('pasantia seleccionada');
+    console.log(this.pasantiaSeleccionada);
   }
 
   buscarPorPalabraClave(){
@@ -118,6 +125,7 @@ export class HomeComponent implements OnInit {
   }
 
   volverAlHome(){
+    if(!this.legajoExistente){ this.legajoExistente = true;}
     this.solicitarLegajoAlumno = false;
     this.inicio = true;
     this.verTabla = true;
