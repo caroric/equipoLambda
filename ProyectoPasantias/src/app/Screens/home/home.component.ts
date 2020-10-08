@@ -181,5 +181,16 @@ export class HomeComponent implements OnInit {
 
   closeModal(){
     document.getElementById('a-ok').click();
+    this.alumnoSolicitante=null;
+    this.solicitarLegajoAlumno = false;
+    this.inicio = true;
+    this.verTabla = true;
+  }
+
+  cancelarSolicitud(){
+    this.alumnoSolicitante=null;
+    this.solicitarLegajoAlumno = false;
+    this.inicio = true;
+    this.verTabla = true;
   }
 }

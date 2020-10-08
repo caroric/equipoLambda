@@ -85,7 +85,7 @@
       <button (click)="confirmarSolicitud()">
          <i class="fas fa-check"></i>  <a id="a-confirmar" href="#openModal"> Confirmar</a>
       </button>
-      <button>
+      <button (click)="cancelarSolicitud()">
          <i class="fas fa-times"></i> Cancelar
       </button>
    </div>
@@ -93,16 +93,12 @@
 
    <!-- Modal para notificar envío de solicitud-->
 <div id="openModal" class="modalDialog">
-   <!--
-
-	<a href="#close" title="Close" class="close">X</a>
-   -->
       <div class="title-container">
-         <h4><i class="far fa-envelope"></i>Envío confirmado</h4>
+         <h4><i class="far fa-envelope"></i>Solicitud registrada</h4>
       <br>
-         <p>Se ha enviado la solicitud a la secretaría.</p>
+         <p>Se ha enviado la solicitud a la secretaría. El código de la misma es: 202</p>
          <button (click)="closeModal()">
-            <a id="a-ok" href="#close">Ok</a>
+            <a id="a-ok" href="">Ok</a>
          </button>
       </div>
 </div>
