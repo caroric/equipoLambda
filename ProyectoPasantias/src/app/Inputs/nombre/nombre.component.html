@@ -1,9 +1,9 @@
 <form>
-   <label>Legajo:</label>
+   <label>Nombre:</label>
    <!--Inputs destinado a outputs-->
-   <input (blur)="sendLegajo($event)"  
-   *ngIf="!InputLegajo"
-   type="number" 
+   <input 
+   *ngIf="!InputNombre"
+   type="text" 
    class="form-control 
    custom-select-sm" 
    id="basic-url" 
@@ -11,12 +11,12 @@
 
    <!--Input destinado a texto no modificable-->
    <input
-   *ngIf="InputLegajo"
+   *ngIf="InputNombre"
    disabled
-   type="number" 
+   type="text" 
    class="form-control 
    custom-select-sm" 
    id="basic-url" 
    aria-describedby="basic-addon3"
-   placeholder="{{InputLegajo}}"> 
+   placeholder="{{InputNombre}}"> 
 </form>  

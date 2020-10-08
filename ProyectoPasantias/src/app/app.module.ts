@@ -15,6 +15,11 @@ import { ListaPasantiasComponent } from './Tables/lista-pasantias/lista-pasantia
 import { PasantiasService } from 'src/app/Services/pasantias.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LegajoComponent } from './Inputs/legajo/legajo.component';
+import { EspecialidadComponent } from './Inputs/especialidad/especialidad.component';
+import { NombreComponent } from './Inputs/nombre/nombre.component';
+import { ApellidoComponent } from './Inputs/apellido/apellido.component';
+import { EmailComponent } from './Inputs/email/email.component';
+import { TelefonoComponent } from './Inputs/telefono/telefono.component';
 
 
 
@@ -27,7 +32,12 @@ import { LegajoComponent } from './Inputs/legajo/legajo.component';
     RemuneracionComponent,
     PalabrasClaveComponent,
     ListaPasantiasComponent,
-    LegajoComponent
+    LegajoComponent,
+    EspecialidadComponent,
+    NombreComponent,
+    ApellidoComponent,
+    EmailComponent,
+    TelefonoComponent
   ],
   imports: [
     BrowserModule,

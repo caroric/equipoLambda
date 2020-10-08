@@ -26,6 +26,11 @@ export class HomeComponent implements OnInit {
   legajo: string;
   legajoExistente: boolean = true;
   pasantiaSeleccionada: any;
+
+  alumnoSolicitante:any;
+  mail: string;
+  telefono: string;
+  showModal: boolean = false;
   constructor(private servicePasantias: PasantiasService,
               private mockAlumnos: MockAlumnosService) { }
 
@@ -136,7 +141,18 @@ export class HomeComponent implements OnInit {
     console.log('-->Legajo: ' + this.legajo);
   }
 
+  receiveMail($event){
+    this.mail = $event;
+    console.log('Home/mail --> ' + this.mail );
+  }
+
+  receiveTelefono($event){
+    this.telefono = $event;
+    console.log('Home/telefono --> ' + this.telefono);
+  }
+
   buscarLegajo(){
+    this.alumnoSolicitante=null;
     let alumnos = this.mockAlumnos.getAlumnos();
     console.log('BUSCAR ALUMNOS');
     console.log(alumnos);
@@ -144,18 +160,26 @@ export class HomeComponent implements OnInit {
     let alumno: any;
     alumnos.forEach((al) => {
       if(al.legajo === this.legajo){
-        alumno = al;
+        this.alumnoSolicitante = al;
       }
     });
 
-    if(alumno){
+    if(this.alumnoSolicitante){
       this.legajoExistente = true;
       console.log('EXITO. SE HA ENCONTRADO EL LEGAJO');
-      console.log(alumno);
+      console.log(this.alumnoSolicitante);
     }
     else{
       this.legajoExistente = false;
       console.log('ERROR. NO SE ENCONTRÓ EL LEGAJO.')
     }
+  }
+
+  confirmarSolicitud(){
+    document.getElementById('a-confirmar').click();
+  }
+
+  closeModal(){
+    document.getElementById('a-ok').click();
   }
 }

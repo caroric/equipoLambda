@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 
 @Component({
   selector: 'legajo',
@@ -7,6 +7,7 @@ import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 })
 export class LegajoComponent implements OnInit {
   @Output() OutputLegajo: EventEmitter<string> = new EventEmitter<string>();
+  @Input() InputLegajo: string;
   constructor() { }
 
   ngOnInit(): void {

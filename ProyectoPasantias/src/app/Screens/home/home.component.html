@@ -60,19 +60,55 @@
    <div class="container container-sm" *ngIf="solicitarLegajoAlumno">
       <h2 class="container-title">Solicitud de pasantía</h2>
       <div class="sinDatos alert alert-info" role="alert">
-         <strong>Atención:</strong> Usted se está por postular para una pasantía en la empresa {{pasantiaSeleccionada.formularioarm.sucursal.empresa.razon_social}}.
-       </div>
-      <legajo (OutputLegajo)="receiveLegajo($event)"></legajo>
-      <button (click)="buscarLegajo()">
-         <i class="fas fa-search"></i>  Buscar
+         <strong>Atención:</strong> Usted está intentando postularse a una pasantía en la empresa {{pasantiaSeleccionada.formularioarm.sucursal.empresa.razon_social}}.
+      </div>
+
+      <div *ngIf="!alumnoSolicitante">
+         <legajo (OutputLegajo)="receiveLegajo($event)"></legajo>
+         <button (click)="buscarLegajo()">
+            <i class="fas fa-search"></i>  Buscar
+         </button>
+         <button (click)="volverAlHome()">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>  Regresar
+         </button>
+      </div>
+   </div>
+
+   <!--Legajo válido: datos del alumno-->
+   <div class="container container-sm" *ngIf="alumnoSolicitante">
+      <especialidad [InputEspecialidad]="alumnoSolicitante.especialidad"></especialidad>
+      <legajo [InputLegajo]="alumnoSolicitante.legajo"></legajo>
+      <nombre [InputNombre]="alumnoSolicitante.nombre"></nombre>
+      <apellido [InputApellido]="alumnoSolicitante.apellido"></apellido>
+      <email [InputMail]="alumnoSolicitante.email" (OutputMail)="receiveMail($event)"></email>
+      <telefono [InputTelefono]="alumnoSolicitante.telefono" (OutputTelefono)="receiveTelefono($event)"></telefono>     
+      <button (click)="confirmarSolicitud()">
+         <i class="fas fa-check"></i>  <a id="a-confirmar" href="#openModal"> Confirmar</a>
       </button>
-      <button (click)="volverAlHome()">
-         <i class="fa fa-arrow-left" aria-hidden="true"></i>  Regresar
+      <button>
+         <i class="fas fa-times"></i> Cancelar
       </button>
    </div>
+
+
+   <!-- Modal para notificar envío de solicitud-->
+<div id="openModal" class="modalDialog">
+   <!--
+
+	<a href="#close" title="Close" class="close">X</a>
+   -->
+      <div class="title-container">
+         <h4><i class="far fa-envelope"></i>Envío confirmado</h4>
+      <br>
+         <p>Se ha enviado la solicitud a la secretaría.</p>
+         <button (click)="closeModal()">
+            <a id="a-ok" href="#close">Ok</a>
+         </button>
+      </div>
+</div>
+
+   <!--Alerta legajo inválido-->
    <div *ngIf="!legajoExistente" class="sinDatos alert alert-warning" role="alert">
       El legajo ingresado no corresponde a un alumno de nuestra facultad.
    </div>
 </body>
-
- 
