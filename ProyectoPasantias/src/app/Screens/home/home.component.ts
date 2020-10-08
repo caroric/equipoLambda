@@ -157,7 +157,7 @@ export class HomeComponent implements OnInit {
     console.log('BUSCAR ALUMNOS');
     console.log(alumnos);
     
-    let alumno: any;
+    //let alumno: any;
     alumnos.forEach((al) => {
       if(al.legajo === this.legajo){
         this.alumnoSolicitante = al;
