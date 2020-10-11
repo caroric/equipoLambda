@@ -1,11 +1,14 @@
-<form>
-   <label>Teléfono:</label>
-   <input
-   type="number" 
-   class="form-control 
-   custom-select-sm" 
-   id="basic-url" 
-   aria-describedby="basic-addon3"
-   value="{{InputTelefono}}"
-   (input)="sendTelefono($event)"> 
-</form>  
+<div class="col-md-8 col-md-offset-2">
+   <div class="formulario d-flex">
+      <label>Teléfono:</label>
+      <input
+      type="number" 
+      class="ml-auto form-control 
+      custom-select-sm" 
+      id="basic-url" 
+      aria-describedby="basic-addon3"
+      value="{{InputTelefono}}"
+      (input)="sendTelefono($event)">
+   </div>
+</div>
+   

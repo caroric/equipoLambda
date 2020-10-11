@@ -1,11 +1,14 @@
-<form>
-   <label>E-mail:</label>
-   <input
-   type="email" 
-   class="form-control 
-   custom-select-sm" 
-   id="basic-url" 
-   aria-describedby="basic-addon3"
-   value="{{InputMail}}"
-   (input)="sendMail($event)"> 
-</form>  
+<div class="col-md-8 col-md-offset-2">
+   <div class="formulario d-flex">
+      <label>E-mail:</label>
+      <input
+      type="email" 
+      class="ml-auto form-control 
+      custom-select-sm" 
+      id="idMail" 
+      aria-describedby="basic-addon3"
+      value="{{InputMail}}"
+      (input)="sendMail($event)"> 
+   </div>
+</div>
+   

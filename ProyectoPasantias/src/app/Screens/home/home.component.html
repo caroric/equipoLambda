@@ -59,10 +59,9 @@
    <!--Solicitud de legajo para registrar pasantías-->
    <div class="container container-sm" *ngIf="solicitarLegajoAlumno">
       
-      <div class="prueba" (click)="volverAlHome()">
-         <button class="container-title">
+      <div class="barra-titulo">
+         <button class="container-title" (click)="volverAlHome()">
             <i class="font-icon fas fa-arrow-circle-left">
-
             </i>
          </button>
          <h2 class="container-title title"> Solicitud de pasantía</h2>
@@ -76,22 +75,28 @@
 
       <div *ngIf="!alumnoSolicitante">
          <form>
-            <legajo (OutputLegajo)="receiveLegajo($event)"></legajo>
-            <button (click)="buscarLegajo()">
+            <legajo (OutputLegajo)="receiveLegajo($event)"
+            (OutputBuscarLegajo)="clickBuscarLegajo($event)"></legajo>
+            <!--
+<button (click)="buscarLegajo()">
                <i class="fas fa-search"></i>  Buscar
             </button>
+            -->
+            
          </form>
       </div>
    </div>
 
    <!--Legajo válido: datos del alumno-->
    <div class="container container-sm" *ngIf="alumnoSolicitante">
-      <especialidad [InputEspecialidad]="alumnoSolicitante.especialidad"></especialidad>
-      <legajo [InputLegajo]="alumnoSolicitante.legajo"></legajo>
-      <nombre [InputNombre]="alumnoSolicitante.nombre"></nombre>
-      <apellido [InputApellido]="alumnoSolicitante.apellido"></apellido>
-      <email [InputMail]="alumnoSolicitante.email" (OutputMail)="receiveMail($event)"></email>
-      <telefono [InputTelefono]="alumnoSolicitante.telefono" (OutputTelefono)="receiveTelefono($event)"></telefono>     
+      <div class="contenedor-datos">
+         <especialidad [InputEspecialidad]="alumnoSolicitante.especialidad"></especialidad>
+         <legajo [InputLegajo]="alumnoSolicitante.legajo"></legajo>
+         <nombre [InputNombre]="alumnoSolicitante.nombre"></nombre>
+         <apellido [InputApellido]="alumnoSolicitante.apellido"></apellido>
+         <email [InputMail]="alumnoSolicitante.email" (OutputMail)="receiveMail($event)"></email>
+         <telefono [InputTelefono]="alumnoSolicitante.telefono" (OutputTelefono)="receiveTelefono($event)"></telefono>
+      </div>
       <button (click)="confirmarSolicitud()">
          <i class="fas fa-check"></i>  <a id="a-confirmar" href="#openModal"> Confirmar</a>
       </button>

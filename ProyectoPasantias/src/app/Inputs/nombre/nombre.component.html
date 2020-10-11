@@ -1,22 +1,25 @@
-<form>
-   <label>Nombre:</label>
-   <!--Inputs destinado a outputs-->
-   <input 
-   *ngIf="!InputNombre"
-   type="text" 
-   class="form-control 
-   custom-select-sm" 
-   id="basic-url" 
-   aria-describedby="basic-addon3">
+<div class="col-md-8 col-md-offset-2">
+   <div class="formulario d-flex">
+      <label>Nombre: </label>
+      <!--Inputs destinado a outputs-->
+      <input 
+      *ngIf="!InputNombre"
+      type="text" 
+      class="ml-auto form-control 
+      custom-select-sm" 
+      id="idNombreMOdificable" 
+      aria-describedby="basic-addon3">
 
-   <!--Input destinado a texto no modificable-->
-   <input
-   *ngIf="InputNombre"
-   disabled
-   type="text" 
-   class="form-control 
-   custom-select-sm" 
-   id="basic-url" 
-   aria-describedby="basic-addon3"
-   placeholder="{{InputNombre}}"> 
-</form>  
+      <!--Input destinado a texto no modificable-->
+      <input
+      *ngIf="InputNombre"
+      disabled
+      type="text" 
+      class="ml-auto form-control 
+      custom-select-sm" 
+      id="idNombreNoModificable" 
+      aria-describedby="basic-addon3"
+      placeholder="{{InputNombre}}"> 
+   </div>
+</div>
+   

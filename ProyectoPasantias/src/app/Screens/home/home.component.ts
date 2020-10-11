@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
   verTabla=true;
   sinPasantiasActivas = false;
   solicitarLegajoAlumno = false;
+  showModal: boolean = false;
+  legajoExistente: boolean = true;
   //Variables de datos.
   idEspecialidad: number=0;
   idAnio: number=0;
@@ -22,15 +24,12 @@ export class HomeComponent implements OnInit {
   pasantias: especialidadxarm[] = [];
   palabrasClave: string;
   pasantiasFiltradas: especialidadxarm[] = [];
-
   legajo: string;
-  legajoExistente: boolean = true;
   pasantiaSeleccionada: any;
-
   alumnoSolicitante:any;
   mail: string;
   telefono: string;
-  showModal: boolean = false;
+  
   constructor(private servicePasantias: PasantiasService,
               private mockAlumnos: MockAlumnosService) { }
 
@@ -130,7 +129,8 @@ export class HomeComponent implements OnInit {
   }
 
   volverAlHome(){
-    if(!this.legajoExistente){ this.legajoExistente = true;}
+    this.legajoExistente = true;
+    this.alumnoSolicitante=null;
     this.solicitarLegajoAlumno = false;
     this.inicio = true;
     this.verTabla = true;
@@ -157,7 +157,6 @@ export class HomeComponent implements OnInit {
     console.log('BUSCAR ALUMNOS');
     console.log(alumnos);
     
-    //let alumno: any;
     alumnos.forEach((al) => {
       if(al.legajo === this.legajo){
         this.alumnoSolicitante = al;
@@ -192,5 +191,9 @@ export class HomeComponent implements OnInit {
     this.solicitarLegajoAlumno = false;
     this.inicio = true;
     this.verTabla = true;
+  }
+
+  clickBuscarLegajo($event){
+    this.buscarLegajo();
   }
 }

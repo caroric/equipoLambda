@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 export class LegajoComponent implements OnInit {
   @Output() OutputLegajo: EventEmitter<string> = new EventEmitter<string>();
   @Input() InputLegajo: string;
+  @Output() OutputBuscarLegajo: EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor() { }
 
   ngOnInit(): void {
@@ -15,5 +16,9 @@ export class LegajoComponent implements OnInit {
 
   sendLegajo(event){
     this.OutputLegajo.emit(event.target.value);
+  }
+
+  buscarLegajo(){
+    this.OutputBuscarLegajo.emit(true);
   }
 }

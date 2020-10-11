@@ -13,6 +13,11 @@ body{
   height: 1080px;
 }
 
+.contenedor-datos{
+  width: 800px;
+  border: #4D67B7;
+}
+
 .background{
   background-image: url("../../../assets/img/UTN.png");
   height: 100%; 
@@ -39,10 +44,14 @@ body{
   width: 100%;
 }
 
-.prueba{
+.barra-titulo{
   display: flex;
   background-color: #4D67B7;
   text-align: center;
+}
+
+.prueba{
+  display: flex;
 }
 
 .icon-button{
