@@ -12,6 +12,8 @@ export class PedidosPasantiaComponent implements OnInit {
   notificacionEnviada=false;
   inputComentarios: boolean = false;
   verTabla=true;
+  verInfoSolicitud=false;
+  solicitud: any;
   constructor() { }
 
   ngOnInit(): void {
@@ -44,5 +46,18 @@ export class PedidosPasantiaComponent implements OnInit {
 
   closeModal(){
     document.getElementById('a-ok').click();
+  }
+
+  verInfoPedido(pedido: any){
+    console.log('Solicitud pasantia:');
+    console.log(pedido);
+    this.solicitud = pedido;
+    this.verTabla = false;
+    this.verInfoSolicitud=true;
+  }
+
+  volverDesdeInfo(){
+    this.verInfoSolicitud = false;
+    this.verTabla = true;
   }
 }

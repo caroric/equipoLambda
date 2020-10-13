@@ -24,11 +24,9 @@
             <button type="button" class="icono btn btn-danger" (click)="rechazarSolicitud()">
                <i class="far fa-times-circle"></i>
             </button>
-            <button type="button" class="icono btn-comun btn btn-primary">
+            <button type="button" class="icono btn-comun btn btn-primary" (click)="verInfoPedido(p)">
                <i class="fas fa-clipboard-list"></i>
             </button>
-
-            
          </td>
       </tr>
       </tbody>
@@ -54,4 +52,52 @@
 <button class="btn-comun" (click)="volver()">
    <i class="far fa-times-circle"></i>  Cancelar
 </button>
+</div>
+
+<!--Info de la solicitud-->
+<div *ngIf="verInfoSolicitud" class="container container-table table-responsive">
+   <table class="table">
+      <thead>
+      <h5 class="text-center text-capitalize">Datos del alumno</h5>
+      </thead>
+      <tbody>
+         <tr>
+            <td><strong class="descripcion">Nombre y apellido: </strong>
+            {{solicitud.legajo_alumno}}</td>
+         </tr>
+         <tr>
+            <td><strong class="descripcion">Año cursado:   </strong>
+            ----</td>
+         </tr>
+         <tr>
+            <td><strong class="descripcion">Especialidad:   </strong>
+            ----</td>
+         </tr>
+         <tr>
+            <td><strong class="descripcion">Legajo:     </strong>
+            ----</td>
+         </tr>
+      </tbody>
+   </table>
+
+   <table class="table">
+      <thead>
+      <h5 class="text-center text-capitalize">Datos de la empresa</h5>
+      </thead>
+      <tbody>
+         <tr>
+            <td><strong class="descripcion">Razón social: </strong>
+            ----</td>
+         </tr>
+         <tr>
+            <td><strong class="descripcion">Sucursal:   </strong>
+            ------</td>
+         </tr>
+         <tr>
+            <button type="button" class="justify-content-center" (click)="volverDesdeInfo()">
+               <i class="fa fa-arrow-left" aria-hidden="true"></i>  Regresar
+            </button>
+         </tr>
+      </tbody>
+   </table>
 </div>
