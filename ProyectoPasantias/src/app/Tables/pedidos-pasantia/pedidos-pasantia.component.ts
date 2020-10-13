@@ -26,8 +26,8 @@ export class PedidosPasantiaComponent implements OnInit {
 
   aceptarPedido(){
     //llamar al servicio.
-    //this.notificacionEnviada=true;
     console.log('***Aceptar click')
+    //document.getElementById('a-confirmar').click();
   }
 
   rechazarSolicitud(){
