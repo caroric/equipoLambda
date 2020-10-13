@@ -1,25 +1,25 @@
 <div class="col-md-8 col-md-offset-2">
    <div class="formulario d-flex">
-      <label>Apellido: </label>
+      <label>Duración: </label>
       <!--Inputs destinado a outputs-->
       <input 
-      *ngIf="!InputApellido"
+      *ngIf="!InputRemuneracion"
       type="text" 
       class="ml-auto form-control 
       custom-select-sm" 
-      id="idApellidoModificable" 
+      id="idRemuneracionModificable" 
       aria-describedby="basic-addon3">
 
       <!--Input destinado a texto no modificable-->
       <input
-      *ngIf="InputApellido"
+      *ngIf="InputRemuneracion"
       disabled
       type="text" 
       class="ml-auto form-control 
       custom-select-sm" 
-      id="idApellidoNoModificable" 
+      id="idRemuneracionNoModificable" 
       aria-describedby="basic-addon3"
-      placeholder="{{InputApellido}}"> 
+      placeholder="{{InputRemuneracion}} ARS"> 
    </div>
 </div>
    

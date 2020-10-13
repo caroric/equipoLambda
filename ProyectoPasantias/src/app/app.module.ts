@@ -20,6 +20,11 @@ import { NombreComponent } from './Inputs/nombre/nombre.component';
 import { ApellidoComponent } from './Inputs/apellido/apellido.component';
 import { EmailComponent } from './Inputs/email/email.component';
 import { TelefonoComponent } from './Inputs/telefono/telefono.component';
+import { RazonSocialComponent } from './Inputs/razon-social/razon-social.component';
+import { NombreSucursalComponent } from './Inputs/nombre-sucursal/nombre-sucursal.component';
+import { PerfilComponent } from './Inputs/perfil/perfil.component';
+import { DuracionComponent } from './Inputs/duracion/duracion.component';
+import { InputRemuneracionComponent } from './Inputs/input-remuneracion/input-remuneracion.component';
 
 
 
@@ -37,7 +42,12 @@ import { TelefonoComponent } from './Inputs/telefono/telefono.component';
     NombreComponent,
     ApellidoComponent,
     EmailComponent,
-    TelefonoComponent
+    TelefonoComponent,
+    RazonSocialComponent,
+    NombreSucursalComponent,
+    PerfilComponent,
+    DuracionComponent,
+    InputRemuneracionComponent
   ],
   imports: [
     BrowserModule,

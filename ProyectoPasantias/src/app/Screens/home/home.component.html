@@ -98,18 +98,14 @@
          <telefono [InputTelefono]="alumnoSolicitante.telefono" (OutputTelefono)="receiveTelefono($event)"></telefono>
       </div>
 
-      <!-- 
-         <div class="contenedor-datos">
-         <especialidad [InputEspecialidad]="alumnoSolicitante.especialidad"></especialidad>
-         <legajo [InputLegajo]="alumnoSolicitante.legajo"></legajo>
-         <nombre [InputNombre]="alumnoSolicitante.nombre"></nombre>
-         <apellido [InputApellido]="alumnoSolicitante.apellido"></apellido>
-         <email [InputMail]="alumnoSolicitante.email" (OutputMail)="receiveMail($event)"></email>
-         <telefono [InputTelefono]="alumnoSolicitante.telefono" (OutputTelefono)="receiveTelefono($event)"></telefono>
+      <div class="contenedor-datos">
+         <razon-social [InputRazonSocial]="pasantiaSeleccionada.formularioarm.sucursal.empresa.razon_social"></razon-social>
+         <nombre-sucursal [InputSucursal]="pasantiaSeleccionada.formularioarm.sucursal.nombre_sucursal"></nombre-sucursal>
+         <perfil [InputPerfil]="pasantiaSeleccionada.formularioarm.perfilSolicitado"></perfil>
+         <duracion-pasantia [InputDuracion]="pasantiaSeleccionada.formularioarm.duracionMeses"></duracion-pasantia>
+         <input-remuneracion [InputRemuneracion]="pasantiaSeleccionada.formularioarm.remuneracion"></input-remuneracion>
       </div>
-      -->
       
-
       <button (click)="confirmarSolicitud()">
          <i class="fas fa-check"></i>  <a id="a-confirmar" href="#openModal"> Confirmar</a>
       </button>

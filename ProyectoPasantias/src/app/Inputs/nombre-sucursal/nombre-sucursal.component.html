@@ -1,25 +1,24 @@
 <div class="col-md-8 col-md-offset-2">
    <div class="formulario d-flex">
-      <label>Apellido: </label>
+      <label>Sucursal: </label>
       <!--Inputs destinado a outputs-->
       <input 
-      *ngIf="!InputApellido"
+      *ngIf="!InputSucursal"
       type="text" 
       class="ml-auto form-control 
       custom-select-sm" 
-      id="idApellidoModificable" 
+      id="idSucursalModificable" 
       aria-describedby="basic-addon3">
 
       <!--Input destinado a texto no modificable-->
       <input
-      *ngIf="InputApellido"
+      *ngIf="InputSucursal"
       disabled
       type="text" 
       class="ml-auto form-control 
       custom-select-sm" 
-      id="idApellidoNoModificable" 
+      id="idSucursalNoModificable" 
       aria-describedby="basic-addon3"
-      placeholder="{{InputApellido}}"> 
+      placeholder="{{InputSucursal}}"> 
    </div>
 </div>
-   

@@ -1,37 +1,37 @@
 <div *ngIf="verPasantias" class="container container-table table-responsive">
    <table class="table table-striped table-hover">
       <thead>
-        <tr>
-          <th scope="col">Fecha búsqueda</th>
-          <th scope="col">Empresa</th>
-          <th scope="col">Perfil</th>
-          <th scope="col">Cargo a cubrir</th>
-          <th scope="col">Fin búsqueda</th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let pas of InputPasantias | paginate: { itemsPerPage: 10, currentPage: pageActual}" >
-          <td>{{pas.formularioarm.fehcaAlta | date: 'shortDate' | date: 'dd/MM/yyyy'}}</td>
-          <td>{{pas.formularioarm.sucursal.nombre_sucursal}}</td>
-          <td>{{pas.formularioarm.perfilSolicitado}}</td>
-          <td>{{pas.formularioarm.cargoACubrir}}</td>
-          <td>{{pas.formularioarm.fechaBaja | date: 'shortDate' | date: 'dd/MM/yyyy'}}</td>
-          <td>
-            <a routerLink="" (click)="verDatosPasantia(pas)">
-               <i class="fas fa-plus-square"></i> Info
-            </a>
-          </td>
-          <td>
-            <a routerLink="" (click)="solicitarPedidoPasantia(pas)">
-               <i class="fas fa-user-tie"></i>Postularse
-            </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+      <tr>
+         <th scope="col">Fecha búsqueda</th>
+         <th scope="col">Empresa</th>
+         <th scope="col">Perfil</th>
+         <th scope="col">Cargo a cubrir</th>
+         <th scope="col">Fin búsqueda</th>
+         <th scope="col"></th>
+         <th scope="col"></th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr *ngFor="let pas of InputPasantias | paginate: { itemsPerPage: 10, currentPage: pageActual}" >
+         <td>{{pas.formularioarm.fehcaAlta | date: 'shortDate' | date: 'dd/MM/yyyy'}}</td>
+         <td>{{pas.formularioarm.sucursal.nombre_sucursal}}</td>
+         <td>{{pas.formularioarm.perfilSolicitado}}</td>
+         <td>{{pas.formularioarm.cargoACubrir}}</td>
+         <td>{{pas.formularioarm.fechaBaja | date: 'shortDate' | date: 'dd/MM/yyyy'}}</td>
+         <td>
+         <a routerLink="" (click)="verDatosPasantia(pas)">
+            <i class="fas fa-plus-square"></i> Info
+         </a>
+         </td>
+         <td>
+         <a routerLink="" (click)="solicitarPedidoPasantia(pas)">
+            <i class="fas fa-user-tie"></i>Postularse
+         </a>
+         </td>
+      </tr>
+   </tbody>
+   </table>
+   <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
 </div>
 
 <!--Datos de pasantía seleccionada-->
@@ -39,7 +39,7 @@
 <div *ngIf="verInfoPasantia" class="container container-table table-responsive">
    <table class="table">
       <thead>
-        <h3 class="text-center text-capitalize">Datos</h3>
+      <h3 class="text-center text-capitalize">Datos</h3>
       </thead>
       <tbody>
          <tr>
@@ -84,6 +84,6 @@
             </button>
          </tr>
       </tbody>
-    </table>
+   </table>
 </div>
 

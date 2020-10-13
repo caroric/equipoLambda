@@ -40,6 +40,8 @@ export class ListaPasantiasComponent implements OnInit {
   }
 
   solicitarPedidoPasantia(pasantia: any){
+    console.log('****lista-pasantias/solicitar pasantia');
+    console.log(pasantia);
     this.OutputSolicitud.emit(false);
     this.OutputPasantia.emit(pasantia);
   }
