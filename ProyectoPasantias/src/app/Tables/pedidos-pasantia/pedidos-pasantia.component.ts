@@ -24,7 +24,8 @@ export class PedidosPasantiaComponent implements OnInit {
 
   aceptarPedido(){
     //llamar al servicio.
-    this.notificacionEnviada=true;
+    //this.notificacionEnviada=true;
+    console.log('***Aceptar click')
   }
 
   rechazarSolicitud(){
@@ -38,6 +39,10 @@ export class PedidosPasantiaComponent implements OnInit {
   }
 
   confirmar(){
+    //document.getElementById('a-confirmar').click();
+  }
 
+  closeModal(){
+    document.getElementById('a-ok').click();
   }
 }

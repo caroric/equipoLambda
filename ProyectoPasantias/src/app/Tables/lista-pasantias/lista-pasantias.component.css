@@ -41,9 +41,17 @@ button{
   margin-left:25px;
 }
 
+.icono{
+  font-size: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .btn-comun{
   background-color: #4D67B7;
   color: #ffffff;
+  /*padding-top: 2px;
+  padding-bottom: 6px;*/
 }
 
 .alerta{
