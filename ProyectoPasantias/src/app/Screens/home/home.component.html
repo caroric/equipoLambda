@@ -97,6 +97,19 @@
          <email [InputMail]="alumnoSolicitante.email" (OutputMail)="receiveMail($event)"></email>
          <telefono [InputTelefono]="alumnoSolicitante.telefono" (OutputTelefono)="receiveTelefono($event)"></telefono>
       </div>
+
+      <!-- 
+         <div class="contenedor-datos">
+         <especialidad [InputEspecialidad]="alumnoSolicitante.especialidad"></especialidad>
+         <legajo [InputLegajo]="alumnoSolicitante.legajo"></legajo>
+         <nombre [InputNombre]="alumnoSolicitante.nombre"></nombre>
+         <apellido [InputApellido]="alumnoSolicitante.apellido"></apellido>
+         <email [InputMail]="alumnoSolicitante.email" (OutputMail)="receiveMail($event)"></email>
+         <telefono [InputTelefono]="alumnoSolicitante.telefono" (OutputTelefono)="receiveTelefono($event)"></telefono>
+      </div>
+      -->
+      
+
       <button (click)="confirmarSolicitud()">
          <i class="fas fa-check"></i>  <a id="a-confirmar" href="#openModal"> Confirmar</a>
       </button>

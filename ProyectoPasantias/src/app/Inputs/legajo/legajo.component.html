@@ -1,19 +1,21 @@
-<div class="col-md-8 col-md-offset-2">
-   <div class="formulario d-flex">
+<div *ngIf="!InputLegajo" class="col-md-8 col-md-offset-2">
+   <div class="formulario pantalla450 d-flex">
+      
       <label>Legajo: </label>
       <!--Inputs destinado a búsqueda-->
-      <input *ngIf="!InputLegajo" (blur)="sendLegajo($event)"  
+      <input (blur)="sendLegajo($event)"  
       type="number" 
       class="ml-auto form-control 
       custom-select-sm" 
       id="idLegajoModificable" 
       aria-describedby="basic-addon3">
-      <button id="btnBuscarLegajo" *ngIf="!InputLegajo" (click)="buscarLegajo()">
-         <i class="fas fa-search"></i>  Buscar
+      <button id="btnBuscarLegajo" (click)="buscarLegajo()">
+         <i class="fas fa-search"></i>
       </button>
-
+      
       <!--Input destinado a texto no modificable-->
-      <input
+      <!--
+<input
       *ngIf="InputLegajo"
       disabled
       type="number" 
@@ -22,7 +24,24 @@
       id="idLegajoNoModificable" 
       aria-describedby="basic-addon3"
       placeholder="{{InputLegajo}}"> 
+      -->
    </div>
-   
 </div>
+
+<div *ngIf="InputLegajo" class="col-md-8 col-md-offset-2">
+   <div class="formulario d-flex">
+      
+      <label>Legajo: </label>
+      <!--Input destinado a texto no modificable-->
+      <input
+      disabled
+      type="number" 
+      class="ml-auto form-control 
+      custom-select-sm" 
+      id="idLegajoNoModificable" 
+      aria-describedby="basic-addon3"
+      placeholder="{{InputLegajo}}"> 
+   </div>
+</div>
+   
    

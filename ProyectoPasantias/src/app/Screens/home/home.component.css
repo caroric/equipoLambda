@@ -14,8 +14,9 @@ body{
 }
 
 .contenedor-datos{
-  width: 800px;
+  width: 730px;
   border: #4D67B7;
+  padding-top: 10px;
 }
 
 .background{
@@ -175,6 +176,12 @@ h4{
     margin-left: 15px;
     margin-right: 15px;
   }
+
+  .contenedor-datos{
+    width: 500px;
+    padding-top: 10px;
+  }
+
 }
 
 @media only screen and (max-width: 450px){
@@ -185,6 +192,11 @@ h4{
     padding-left: 0px;
     padding-right: 0px;;
     margin-top: 0px;
+  }
+
+  .contenedor-datos{
+    width: 320px;
+    padding-top: 10px;
   }
 
   body{
