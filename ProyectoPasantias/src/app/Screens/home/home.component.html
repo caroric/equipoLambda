@@ -90,12 +90,12 @@
    <!--Legajo válido: datos del alumno-->
    <div class="container container-sm" *ngIf="alumnoSolicitante">
       <div class="contenedor-datos">
-         <especialidad [InputEspecialidad]="alumnoSolicitante.especialidad"></especialidad>
+         <especialidad [InputEspecialidad]="alumnoSolicitante.especialidad.nombre"></especialidad>
          <legajo [InputLegajo]="alumnoSolicitante.legajo"></legajo>
          <nombre [InputNombre]="alumnoSolicitante.nombre"></nombre>
          <apellido [InputApellido]="alumnoSolicitante.apellido"></apellido>
-         <email [InputMail]="alumnoSolicitante.email" (OutputMail)="receiveMail($event)"></email>
-         <telefono [InputTelefono]="alumnoSolicitante.telefono" (OutputTelefono)="receiveTelefono($event)"></telefono>
+         <email [InputMail]="alumnoSolicitante.mail" (OutputMail)="receiveMail($event)"></email>
+         <telefono [InputTelefono]="alumnoSolicitante.nro_telefono" (OutputTelefono)="receiveTelefono($event)"></telefono>
       </div>
 
       <div class="contenedor-datos">

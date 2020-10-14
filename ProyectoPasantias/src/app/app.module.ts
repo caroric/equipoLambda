@@ -25,9 +25,7 @@ import { NombreSucursalComponent } from './Inputs/nombre-sucursal/nombre-sucursa
 import { PerfilComponent } from './Inputs/perfil/perfil.component';
 import { DuracionComponent } from './Inputs/duracion/duracion.component';
 import { InputRemuneracionComponent } from './Inputs/input-remuneracion/input-remuneracion.component';
-
-
-
+import { AlumnosService } from '../app/Services/alumnos.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +45,7 @@ import { InputRemuneracionComponent } from './Inputs/input-remuneracion/input-re
     NombreSucursalComponent,
     PerfilComponent,
     DuracionComponent,
-    InputRemuneracionComponent
+    InputRemuneracionComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +55,8 @@ import { InputRemuneracionComponent } from './Inputs/input-remuneracion/input-re
     HttpClientModule
   ],
   providers: [
-    PasantiasService
+    PasantiasService,
+    AlumnosService
   ],
   bootstrap: [AppComponent]
 })

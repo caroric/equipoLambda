@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 //import { Pasantia } from '../../Models/Pasantia';
 import { PasantiasService } from '../../Services/pasantias.service';
 import { especialidadxarm } from '../../Models/especialidadxarm';
-import { MockAlumnosService } from '../../Services/mock-alumnos.service';
+import { AlumnosService } from '../../Services/alumnos.service';
+import { alumno } from 'src/app/Models/alumno';
+import { createNgModule } from '@angular/compiler/src/core';
+//import { MockAlumnosService } from '../../Services/mock-alumnos.service';
+import { formularioarmxalumno } from '../../Models/formularioarmxalumno';
 
 @Component({
   selector: 'app-home',
@@ -24,14 +28,16 @@ export class HomeComponent implements OnInit {
   pasantias: especialidadxarm[] = [];
   palabrasClave: string;
   pasantiasFiltradas: especialidadxarm[] = [];
-  legajo: string;
+  legajo: number;
   pasantiaSeleccionada: any;
   alumnoSolicitante:any;
   mail: string;
-  telefono: string;
+  telefono: number;
+  camposVacios: boolean = false;
   
   constructor(private servicePasantias: PasantiasService,
-              private mockAlumnos: MockAlumnosService) { }
+              private serviceAlumnos: AlumnosService
+              /*private mockAlumnos: MockAlumnosService*/) { }
 
   ngOnInit(): void {
     this.loadPasantias();
@@ -152,30 +158,69 @@ export class HomeComponent implements OnInit {
   }
 
   buscarLegajo(){
-    this.alumnoSolicitante=null;
-    let alumnos = this.mockAlumnos.getAlumnos();
-    console.log('BUSCAR ALUMNOS');
-    console.log(alumnos);
-    
-    alumnos.forEach((al) => {
-      if(al.legajo === this.legajo){
-        this.alumnoSolicitante = al;
-      }
-    });
-
-    if(this.alumnoSolicitante){
-      this.legajoExistente = true;
-      console.log('EXITO. SE HA ENCONTRADO EL LEGAJO');
-      console.log(this.alumnoSolicitante);
-    }
-    else{
-      this.legajoExistente = false;
-      console.log('ERROR. NO SE ENCONTRÓ EL LEGAJO.')
+    if(this.legajo){
+      this.serviceAlumnos.getAlumno(this.legajo)
+      .subscribe((response) => {
+        if(response !== null){
+          if(!this.legajoExistente){ this.legajoExistente= true;}
+          this.alumnoSolicitante = response;
+          console.log('SE HA ENCONTRADO EL ALUMNO');
+          console.log(this.alumnoSolicitante);
+          this.mail = this.alumnoSolicitante.mail;
+          this.telefono = this.alumnoSolicitante.nro_telefono;
+          console.log('MAIL Y TELEFONO');
+          console.log(this.mail);
+          console.log(this.telefono);
+        }
+        else{
+          this.legajoExistente = false;
+          console.log('ERROR. NO SE ENCONTRÓ EL ALUMNO.')
+        }
+      })
     }
   }
 
   confirmarSolicitud(){
-    document.getElementById('a-confirmar').click();
+    if(!this.mail || !this.telefono){
+      this.camposVacios = true;
+      console.log('FALTAN CAMPOS');
+      console.log(this.mail);
+      console.log(this.telefono);
+    }
+    else{
+     // let a: alumno = this.alumnoSolicitante;
+      //let alumnoModificado: alumno = new alumno(a.nombre, a.apellido, a.legajo, a.id_especialidad, this.mail, this.telefono, a.tipo_telefono);
+      let alumnoModificado: alumno = new alumno();
+      alumnoModificado.setNombre(this.alumnoSolicitante.nombre);
+      alumnoModificado.setApellido(this.alumnoSolicitante.apellido);
+      alumnoModificado.setLegajo(this.alumnoSolicitante.legajo);
+      alumnoModificado.setEspecialidad(this.alumnoSolicitante.id_especialidad);
+      alumnoModificado.setMail(this.mail);
+      alumnoModificado.setNro(+this.telefono);
+      alumnoModificado.setTipo(this.alumnoSolicitante.tipo_telefono);
+      console.log('ALUMNO MODIFICADO');
+      console.log(alumnoModificado);
+      
+      this.serviceAlumnos.updateAlumno(alumnoModificado)
+      .subscribe((response) => {
+        console.log('updated')
+        let armxalumno: formularioarmxalumno = new formularioarmxalumno();
+        armxalumno.setIdArm(this.pasantiaSeleccionada.formularioarm.id_arm);
+        armxalumno.setLegajoAlumno(alumnoModificado.legajo);
+        let fecha: Date = new Date();
+        armxalumno.setFechaSolicitud(fecha);
+        armxalumno.setEstado(1);
+        armxalumno.setLegajoResponsable(80230);
+        this.serviceAlumnos.saveFormularioXAlumno(armxalumno)
+          .subscribe((response) => {
+            console.log(response);
+            //document.getElementById('a-confirmar').click();
+          });
+      }); 
+
+      
+
+    }
   }
 
   closeModal(){
