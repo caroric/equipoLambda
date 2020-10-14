@@ -1,0 +1,125 @@
+<div *ngIf="verTabla" class="container container-table table-responsive">
+   <table class="table table-striped table-hover">
+      <thead>
+         <tr>
+            <th scope="col">Fecha solicitud</th>
+            <th scope="col">Legajo</th>
+            <th scope="col">Alumno</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+         </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of InputPedidos | paginate: { itemsPerPage: 10, currentPage: pageActual}" >
+         <td>{{p.fecha_solicitud | date: 'shortDate' | date: 'dd/MM/yyyy'}}</td>
+         <td>{{p.alumno.legajo}}</td>
+         <td>{{p.alumno.nombre}} {{p.alumno.apellido}}</td>
+         <td>{{p.formularioarm.sucursal.nombre_sucursal}}</td>
+         <td>{{p.estadoarmxalumno.nombre}}</td>
+         <td>
+            <button type="button" data-toggle="modal" data-target="#ventanaModal" class="icono btn btn-success" (click)="aceptarPedido(p)">
+               <i class="far fa-check-circle"></i>
+            </button>
+            <button type="button" class="icono btn btn-danger" (click)="rechazarSolicitud(p)">
+               <i class="far fa-times-circle"></i>
+            </button>
+            <button type="button" class="icono btn-comun btn btn-primary" (click)="verInfoPedido(p)">
+               <i class="fas fa-clipboard-list"></i>
+            </button>
+         </td>
+      </tr>
+      </tbody>
+   </table>
+   <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+</div>
+
+<!--Notificacion de solicitud aceptada-->
+<div class="modal" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 id="tituloVentana">Título</h5>
+            <button class="close" data-dismiss="modal" aria-label="Cerrar">
+               <span aria-hidden="">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <div class="alert alert-success">
+               <h6>Tus datos se han guardado.</h6>
+            </div>
+         </div>
+         <div class="modal-footer">
+            <button class="btn btn-warning" type="button" data-dismiss="modal">
+               Cerrar
+            </button>
+            <button class="btn btn-success" type="button">
+               Aceptar
+            </button>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!--
+<div *ngIf="notificacionEnviada" class="alerta alert alert-primary" role="alert">
+   Se ha notificado a los interesados.
+</div>
+-->
+
+<!-- Denegación de solicitud-->
+<div *ngIf="inputComentarios" class="container container-sm">
+<app-comentarios
+(OutputComentarios)="receiveComentarios($event)">
+</app-comentarios>
+<button class="btn-comun" (click)="confirmar()">
+   <i class="far fa-check-circle"></i>  Confirmar
+</button>
+<button class="btn-comun" (click)="volver()">
+   <i class="far fa-times-circle"></i>  Cancelar
+</button>
+</div>
+
+<!--Info de la solicitud-->
+<div *ngIf="verInfoSolicitud" class="container container-table table-responsive">
+   <table class="table">
+      <thead>
+      <h5 class="text-center text-capitalize">Datos del alumno</h5>
+      </thead>
+      <tbody>
+         <tr>
+            <td><strong class="descripcion">Nombre y apellido: </strong>
+            {{solicitud.alumno.nombre}} {{solicitud.alumno.apellido}}</td>
+         </tr>
+         <tr>
+            <td><strong class="descripcion">Especialidad:   </strong>
+            ----</td>
+         </tr>
+         <tr>
+            <td><strong class="descripcion">Legajo:     </strong>
+               {{solicitud.alumno.legajo}}</td>
+         </tr>
+      </tbody>
+   </table>
+
+   <table class="table">
+      <thead>
+      <h5 class="text-center text-capitalize">Datos de la empresa</h5>
+      </thead>
+      <tbody>
+         <tr>
+            <td><strong class="descripcion">Razón social: </strong>
+            {{solicitud.formularioarm.sucursal.nombre_sucursal}}</td>
+         </tr>
+         <tr>
+            <td><strong class="descripcion">Sucursal:   </strong>
+               {{solicitud.formularioarm.sucursal.nombre_sucursal}}</td>
+         </tr>
+         <tr>
+            <button type="button" class="justify-content-center" (click)="volverDesdeInfo()">
+               <i class="fa fa-arrow-left" aria-hidden="true"></i>  Regresar
+            </button>
+         </tr>
+      </tbody>
+   </table>
+</div>

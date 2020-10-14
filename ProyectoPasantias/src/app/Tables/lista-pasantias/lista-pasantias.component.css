@@ -14,6 +14,7 @@
 thead{
   background-color: #4D67B7;
   color: #ffffff;
+  text-align: center;
 }
 
 .datos{
@@ -25,6 +26,28 @@ thead{
 }
 
 button{
+  /*background-color: #4D67B7;
+  color: #ffffff;*/
+  font-family: sans-serif;
+  font-size: large;
+  border-radius: 5px;
+  border-style: none;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin-left:25px;
+}
+
+.icono{
+  font-size: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.btn-comun{
   background-color: #4D67B7;
   color: #ffffff;
   font-family: sans-serif;
@@ -40,13 +63,68 @@ button{
   margin-left:25px;
 }
 
+.alerta{
+  margin-top: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  height: 50px;
+  font-size: larger;
+  text-align: center;
+}
+
+a{
+  padding-left: 4px;
+}
+
+/*prueba de modal sin javascript*/
+.modalDialog {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+.modalDialog:target {
+	opacity:1;
+	pointer-events: auto;
+}
+.modalDialog > div {
+	width: 400px;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 10px;
+	background: #fff;
+	background: -moz-linear-gradient(#fff, #999);
+	background: -webkit-linear-gradient(#fff, #999);
+	background: -o-linear-gradient(#fff, #999);
+  -webkit-transition: opacity 400ms ease-in;
+-moz-transition: opacity 400ms ease-in;
+transition: opacity 400ms ease-in;
+}
+.title-container{
+  text-align: center;
+}
+h4{
+  margin-top: 5px;
+}
+/*termina modal*/
+
 @media only screen and (max-width: 600px) and (min-width: 450px){
   .table{
     font-size: smaller;
   }
- .container-table{
-   width: auto;
- }
+  .container-table{
+    width: auto;
+  }
 }
 
 @media only screen and (max-width: 450px) {
@@ -56,4 +134,4 @@ button{
     font-size: smaller;
     
   }
- }
+}

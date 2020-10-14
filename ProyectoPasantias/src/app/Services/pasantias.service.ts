@@ -55,6 +55,9 @@ export class PasantiasService {
         .get<especialidadxarm[]>(this.apiUrl + '/MostrarDatoPasantia/'+idForm)
         .pipe(retry(1), catchError(this.errorHandler));
     }
+
+
+    
   
   errorHandler(error) {
     let errorMessage = '';
