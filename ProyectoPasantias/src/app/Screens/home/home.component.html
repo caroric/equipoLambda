@@ -89,7 +89,8 @@
 
    <!--Legajo válido: datos del alumno-->
    <div class="container container-sm" *ngIf="alumnoSolicitante">
-      <div class="contenedor-datos">
+      <h5>Datos del alumno</h5>
+      <div class="contenedor-datos ml-auto">
          <especialidad [InputEspecialidad]="alumnoSolicitante.especialidad.nombre"></especialidad>
          <legajo [InputLegajo]="alumnoSolicitante.legajo"></legajo>
          <nombre [InputNombre]="alumnoSolicitante.nombre"></nombre>
@@ -98,7 +99,8 @@
          <telefono [InputTelefono]="alumnoSolicitante.nro_telefono" (OutputTelefono)="receiveTelefono($event)"></telefono>
       </div>
 
-      <div class="contenedor-datos">
+      <h5>Datos de la empresa</h5>
+      <div class="contenedor-datos ml-auto">
          <razon-social [InputRazonSocial]="pasantiaSeleccionada.formularioarm.sucursal.empresa.razon_social"></razon-social>
          <nombre-sucursal [InputSucursal]="pasantiaSeleccionada.formularioarm.sucursal.nombre_sucursal"></nombre-sucursal>
          <perfil [InputPerfil]="pasantiaSeleccionada.formularioarm.perfilSolicitado"></perfil>
