@@ -69,23 +69,9 @@
          <h2 class="container-title title"> Solicitud de pasantía</h2>
       </div>
 
-      <!--
-<div class="sinDatos alert alert-info" role="alert">
-         <strong>Atención:</strong> Usted está intentando postularse a una pasantía en la empresa {{pasantiaSeleccionada.formularioarm.sucursal.empresa.razon_social}}.
-      </div>
-      -->
-
       <div *ngIf="!alumnoSolicitante">
-         <form>
-            <legajo (OutputLegajo)="receiveLegajo($event)"
+         <legajo (OutputLegajo)="receiveLegajo($event)"
             (OutputBuscarLegajo)="clickBuscarLegajo($event)"></legajo>
-            <!--
-<button (click)="buscarLegajo()">
-               <i class="fas fa-search"></i>  Buscar
-            </button>
-            -->
-            
-         </form>
       </div>
    </div>
 

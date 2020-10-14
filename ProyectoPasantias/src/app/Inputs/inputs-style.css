@@ -8,9 +8,18 @@ form label{
   padding-left: 5px;
 }
 
+#idLegajoModificable{
+  margin-left: 0px;
+}
+
 form{
   display: flex;
-  color: #6495ed;
+  color: #4D67B7;
+}
+
+label{
+  color: #4D67B7;
+  margin-right: 5px;
 }
 
 .comentarios{
@@ -31,6 +40,11 @@ button{
   padding-top: 4px;
   padding-bottom: 4px;
   margin-left:25px;
+}
+
+#btnBuscarLegajo{
+  margin-top:4px;
+  height: 31px;
 }
 
 @media only screen and (max-width: 450px){

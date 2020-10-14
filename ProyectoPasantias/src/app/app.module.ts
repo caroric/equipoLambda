@@ -17,6 +17,17 @@ import { LegajoComponent } from './Inputs/legajo/legajo.component';
 import { PedidosPasantiaComponent } from './Tables/pedidos-pasantia/pedidos-pasantia.component';
 import { ComentariosComponent } from './Inputs/comentarios/comentarios.component';
 import { AlumnosService } from '../app/Services/alumnos.service';
+import { EspecialidadComponent } from '../app/Inputs/especialidad/especialidad.component';
+import { NombreComponent } from '../app/Inputs/nombre/nombre.component';
+import { ApellidoComponent } from '../app/Inputs/apellido/apellido.component';
+import { EmailComponent } from '../app/Inputs/email/email.component';
+import { TelefonoComponent } from '../app/Inputs/telefono/telefono.component';
+import { RazonSocialComponent} from '../app/Inputs/razon-social/razon-social.component';
+import { NombreSucursalComponent } from '../app/Inputs/nombre-sucursal/nombre-sucursal.component';
+import { PerfilComponent } from '../app/Inputs/perfil/perfil.component';
+import { DuracionComponent } from '../app/Inputs/duracion/duracion.component';
+import { InputRemuneracionComponent } from '../app/Inputs/input-remuneracion/input-remuneracion.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +41,17 @@ import { AlumnosService } from '../app/Services/alumnos.service';
     ProcesarPasantiasComponent,
     LegajoComponent,
     PedidosPasantiaComponent,
-    ComentariosComponent
+    ComentariosComponent,
+    EspecialidadComponent,
+    NombreComponent,
+    ApellidoComponent,
+    EmailComponent,
+    TelefonoComponent,
+    RazonSocialComponent,
+    NombreSucursalComponent,
+    PerfilComponent,
+    DuracionComponent,
+    InputRemuneracionComponent
   ],
   imports: [
     BrowserModule,

@@ -200,7 +200,8 @@ export class HomeComponent implements OnInit {
       alumnoModificado.setTipo(this.alumnoSolicitante.tipo_telefono);
       console.log('ALUMNO MODIFICADO');
       console.log(alumnoModificado);
-      
+
+      //document.getElementById('a-confirmar').click();
       this.serviceAlumnos.updateAlumno(alumnoModificado)
       .subscribe((response) => {
         console.log('updated')
@@ -214,7 +215,6 @@ export class HomeComponent implements OnInit {
         this.serviceAlumnos.saveFormularioXAlumno(armxalumno)
           .subscribe((response) => {
             console.log(response);
-            //document.getElementById('a-confirmar').click();
           });
       }); 
 

@@ -22,6 +22,10 @@ export class ProcesarPasantiasComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  receiveClickBusqueda($event){
+    this.buscarLegajo();
+  }
+
   buscarLegajo(){
     this.servicio.getResponsable(this.legajo)
     .subscribe((response) => {

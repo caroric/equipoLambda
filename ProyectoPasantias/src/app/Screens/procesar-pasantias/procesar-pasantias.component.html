@@ -18,26 +18,34 @@
          </nav>
    </div>
 
-   <!--Solicitud de legajo para gestionar pasantías-->
-   <div *ngIf="containerLegajo" class="container container-sm">
-      <h2 class="container-title">Gestionar pasantías</h2>
-      <legajo (OutputLegajo)="receiveLegajo($event)"></legajo>
-      <button (click)="buscarLegajo()">
-         <i class="fas fa-search"></i>  Buscar
+  
+<div class="container container-sm" *ngIf="containerLegajo">
+   <div class="barra-titulo">
+      <button class="container-title" routerLink="/">
+         <i class="font-icon fas fa-arrow-circle-left">
+         </i>
       </button>
-      <button>
-         <i class="fa fa-arrow-left" aria-hidden="true"></i>  Regresar
-      </button>
+      <h2 class="container-title title">Gestionar pasantías</h2>
+   </div>
+   <div>
+      <legajo (OutputLegajo)="receiveLegajo($event)"
+         (OutputBuscarLegajo)="receiveClickBusqueda($event)"></legajo>
    </div>
    <div *ngIf="!legajoExistente" class="sinDatos alert alert-warning" role="alert">
       El legajo ingresado no corresponde a nuestra facultad.
    </div>
-
+</div>
 
    <!--Tabla de pedidos de pasantías-->
    <div *ngIf="verTabla">
       <div class="container container-sm">
-         <h2 class="container-title">Gestionar pasantías</h2>
+         <div class="barra-titulo">
+            <button class="container-title" routerLink="/">
+               <i class="font-icon fas fa-arrow-circle-left">
+               </i>
+            </button>
+            <h2 class="container-title title">Gestionar pasantías</h2>
+         </div>
          <p><strong>Legajo logueado:</strong>  {{legajo}}</p>
       </div>
       <app-pedidos-pasantia
