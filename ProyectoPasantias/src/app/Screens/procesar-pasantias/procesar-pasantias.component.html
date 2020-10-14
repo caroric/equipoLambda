@@ -41,7 +41,9 @@
          <p><strong>Legajo logueado:</strong>  {{legajo}}</p>
       </div>
       <app-pedidos-pasantia
-      [InputPedidos]="pedidosPasantia">
+      [InputPedidos]="pedidosPasantia"
+      [InputLegajo]="legajo"
+      (OutputReload)="reload($event)">
       </app-pedidos-pasantia>
    </div>
 </body>
