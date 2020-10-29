@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
   mail: string;
   telefono: number;
   camposVacios: boolean = false;
+  solicitudRegistrada = false;
   
   constructor(private servicePasantias: PasantiasService,
               private serviceAlumnos: AlumnosService
@@ -135,6 +136,7 @@ export class HomeComponent implements OnInit {
   }
 
   volverAlHome(){
+    this.solicitudRegistrada = false;
     this.legajoExistente = true;
     this.alumnoSolicitante=null;
     this.solicitarLegajoAlumno = false;
@@ -154,7 +156,7 @@ export class HomeComponent implements OnInit {
 
   receiveTelefono($event){
     this.telefono = $event;
-    console.log('Home/telefono --> ' + this.telefono);
+    console.log('Home/telefono --> ' + this.telefono)
   }
 
   buscarLegajo(){
@@ -188,8 +190,6 @@ export class HomeComponent implements OnInit {
       console.log(this.telefono);
     }
     else{
-     // let a: alumno = this.alumnoSolicitante;
-      //let alumnoModificado: alumno = new alumno(a.nombre, a.apellido, a.legajo, a.id_especialidad, this.mail, this.telefono, a.tipo_telefono);
       let alumnoModificado: alumno = new alumno();
       alumnoModificado.setNombre(this.alumnoSolicitante.nombre);
       alumnoModificado.setApellido(this.alumnoSolicitante.apellido);
@@ -202,6 +202,7 @@ export class HomeComponent implements OnInit {
       console.log(alumnoModificado);
 
       //document.getElementById('a-confirmar').click();
+      
       this.serviceAlumnos.updateAlumno(alumnoModificado)
       .subscribe((response) => {
         console.log('updated')

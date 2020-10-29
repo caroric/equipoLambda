@@ -30,9 +30,14 @@ export class ProcesarPasantiasComponent implements OnInit {
     this.servicio.getResponsable(this.legajo)
     .subscribe((response) => {
       if(response !== null){
+        if(!this.legajoExistente){ this.legajoExistente=true;}
         this.cargarPedidos();
       }
-    });
+      else{
+        this.legajoExistente=false;
+      }
+    },
+    (error)=>{ this.legajoExistente = false;});
   }
 
   cargarPedidos(){

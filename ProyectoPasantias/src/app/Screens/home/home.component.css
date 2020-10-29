@@ -13,6 +13,10 @@ body{
   height: 1080px;
 }
 
+.container-alert{
+  height: 500px;
+}
+
 .contenedor-datos{
   width: 730px;
   border: #4D67B7;
@@ -167,6 +171,26 @@ h4{
 }
 /*termina modal*/
 
+.two-col{
+  overflow: hidden;
+}
+
+.two-col .col1,
+.two-col .col2 {
+    width: 49%;
+}
+
+.two-col .col1 {
+    float: left;
+}
+
+.two-col .col2 {
+    float: right;
+}
+
+.two-col {
+    display: block;
+}
 
 @media only screen and (max-width: 600px) and (min-width: 450px){
   .form-sm{

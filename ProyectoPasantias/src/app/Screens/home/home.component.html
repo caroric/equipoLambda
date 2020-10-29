@@ -76,32 +76,51 @@
    </div>
 
    <!--Legajo válido: datos del alumno-->
-   <div class="container container-sm" *ngIf="alumnoSolicitante">
-      <h5>Datos del alumno</h5>
-      <div class="contenedor-datos ml-auto">
-         <especialidad [InputEspecialidad]="alumnoSolicitante.especialidad.nombre"></especialidad>
-         <legajo [InputLegajo]="alumnoSolicitante.legajo"></legajo>
-         <nombre [InputNombre]="alumnoSolicitante.nombre"></nombre>
-         <apellido [InputApellido]="alumnoSolicitante.apellido"></apellido>
-         <email [InputMail]="alumnoSolicitante.mail" (OutputMail)="receiveMail($event)"></email>
-         <telefono [InputTelefono]="alumnoSolicitante.nro_telefono" (OutputTelefono)="receiveTelefono($event)"></telefono>
+   <div class="container container-sm two-col" *ngIf="alumnoSolicitante">
+      <div class="col1">
+         <h5>Datos del alumno</h5>
+         <div class="contenedor-datos">
+            <especialidad [InputEspecialidad]="alumnoSolicitante.especialidad.nombre"></especialidad>
+            <legajo [InputLegajo]="alumnoSolicitante.legajo"></legajo>
+            <nombre [InputNombre]="alumnoSolicitante.nombre"></nombre>
+            <apellido [InputApellido]="alumnoSolicitante.apellido"></apellido>
+            <email [InputMail]="alumnoSolicitante.mail" (OutputMail)="receiveMail($event)"></email>
+            <telefono [InputTelefono]="alumnoSolicitante.nro_telefono" (OutputTelefono)="receiveTelefono($event)"></telefono>
+         </div>
       </div>
 
-      <h5>Datos de la empresa</h5>
-      <div class="contenedor-datos ml-auto">
-         <razon-social [InputRazonSocial]="pasantiaSeleccionada.formularioarm.sucursal.empresa.razon_social"></razon-social>
-         <nombre-sucursal [InputSucursal]="pasantiaSeleccionada.formularioarm.sucursal.nombre_sucursal"></nombre-sucursal>
-         <perfil [InputPerfil]="pasantiaSeleccionada.formularioarm.perfilSolicitado"></perfil>
-         <duracion-pasantia [InputDuracion]="pasantiaSeleccionada.formularioarm.duracionMeses"></duracion-pasantia>
-         <input-remuneracion [InputRemuneracion]="pasantiaSeleccionada.formularioarm.remuneracion"></input-remuneracion>
+      <div class="col2">
+         <h5>Datos de la empresa</h5>
+         <div class="contenedor-datos ml-auto">
+            <razon-social [InputRazonSocial]="pasantiaSeleccionada.formularioarm.sucursal.empresa.razon_social"></razon-social>
+            <nombre-sucursal [InputSucursal]="pasantiaSeleccionada.formularioarm.sucursal.nombre_sucursal"></nombre-sucursal>
+            <perfil [InputPerfil]="pasantiaSeleccionada.formularioarm.perfilSolicitado"></perfil>
+            <duracion-pasantia [InputDuracion]="pasantiaSeleccionada.formularioarm.duracionMeses"></duracion-pasantia>
+            <input-remuneracion [InputRemuneracion]="pasantiaSeleccionada.formularioarm.remuneracion"></input-remuneracion>
+         </div>
       </div>
-      
-      <button (click)="confirmarSolicitud()">
+   
+      <button id="btnConfirmar" (click)="confirmarSolicitud()">
          <i class="fas fa-check"></i>  <a id="a-confirmar" href="#openModal"> Confirmar</a>
       </button>
       <button (click)="cancelarSolicitud()">
          <i class="fas fa-times"></i> Cancelar
       </button>
+      <!--
+  <div *ngIf="camposVacios" class="sinDatos alert alert-danger" role="alert">
+         Por favor, complete sus datos de contacto.
+      </div>
+      -->
+   </div>
+
+   <div *ngIf="solicitudRegistrada" class="container-alert">
+      <div  class="sinDatos alert alert-success" role="alert">
+         <div class="title-container">
+            <h4><i class="far fa-envelope"></i>Solicitud registrada</h4>
+         <br>
+            <p>Se ha enviado la solicitud a la secretaría.</p>
+         </div>
+      </div>
    </div>
 
 
@@ -110,7 +129,7 @@
       <div class="title-container">
          <h4><i class="far fa-envelope"></i>Solicitud registrada</h4>
       <br>
-         <p>Se ha enviado la solicitud a la secretaría. El código de la misma es: 202</p>
+         <p>Se ha enviado la solicitud a la secretaría.</p>
          <button (click)="closeModal()">
             <a id="a-ok" href="">Ok</a>
          </button>

@@ -31,9 +31,9 @@
       <legajo (OutputLegajo)="receiveLegajo($event)"
          (OutputBuscarLegajo)="receiveClickBusqueda($event)"></legajo>
    </div>
-   <div *ngIf="!legajoExistente" class="sinDatos alert alert-warning" role="alert">
-      El legajo ingresado no corresponde a nuestra facultad.
-   </div>
+</div>
+<div *ngIf="!legajoExistente" class="sinDatos alert alert-warning" role="alert">
+   El legajo ingresado no corresponde a nuestra facultad.
 </div>
 
    <!--Tabla de pedidos de pasantías-->
