@@ -192,6 +192,15 @@ h4{
     display: block;
 }
 
+.normal-screen{
+  visibility: visible;
+}
+
+.responsive-screen{
+  display: none;
+  visibility: hidden;
+}
+
 @media only screen and (max-width: 600px) and (min-width: 450px){
   .form-sm{
     display: inline-grid;
@@ -207,6 +216,14 @@ h4{
     padding-top: 10px;
   }
 
+  .normal-screen{
+    visibility: hidden;
+  }
+
+  .responsive-screen{
+    visibility: visible;
+    display: unset;
+  }
 }
 
 @media only screen and (max-width: 450px){
@@ -278,4 +295,11 @@ h4{
   transition: opacity 400ms ease-in;
   }
 
+  .normal-screen{
+    visibility: hidden;
+  }
+  .responsive-screen{
+    visibility: visible;
+    display: unset;
+  }
 }
