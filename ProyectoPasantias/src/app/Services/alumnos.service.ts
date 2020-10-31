@@ -26,6 +26,12 @@ export class AlumnosService {
     .pipe(retry(1), catchError(this.errorHandler));
   }
 
+  validarExistencia(legajo: number, idFormulario: number){
+    return this.http
+    .get<alumno>(this.apiUrl +'/validarAlumno/' + legajo + '/' + idFormulario)
+    .pipe(retry(1), catchError(this.errorHandler));
+  }
+
   // update
   updateAlumno(alumnoModificado: alumno): Observable<alumno> {
     return this.http

@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit {
   telefono: number;
   camposVacios: boolean = false;
   solicitudRegistrada = false;
+  solicitudDoble = false;
   
   constructor(private servicePasantias: PasantiasService,
               private serviceAlumnos: AlumnosService
@@ -136,7 +137,9 @@ export class HomeComponent implements OnInit {
   }
 
   volverAlHome(){
+    this.camposVacios = false;
     this.solicitudRegistrada = false;
+    this.solicitudDoble = false;
     this.legajoExistente = true;
     this.alumnoSolicitante=null;
     this.solicitarLegajoAlumno = false;
@@ -173,6 +176,7 @@ export class HomeComponent implements OnInit {
           console.log('MAIL Y TELEFONO');
           console.log(this.mail);
           console.log(this.telefono);
+          this.validarDobleSolicitud();
         }
         else{
           this.legajoExistente = false;
@@ -180,6 +184,17 @@ export class HomeComponent implements OnInit {
         }
       })
     }
+  }
+
+  validarDobleSolicitud(){
+    this.serviceAlumnos.validarExistencia(this.alumnoSolicitante.legajo, this.pasantiaSeleccionada.formularioarm.id_arm)
+    .subscribe((response) => {
+      console.log('**¿Existe la pasantía?');
+      console.log(response);
+      if(response){
+        this.solicitudDoble = true;
+      }
+    });
   }
 
   confirmarSolicitud(){
@@ -190,6 +205,7 @@ export class HomeComponent implements OnInit {
       console.log(this.telefono);
     }
     else{
+      document.getElementById('a-confirmar').click();
       let alumnoModificado: alumno = new alumno();
       alumnoModificado.setNombre(this.alumnoSolicitante.nombre);
       alumnoModificado.setApellido(this.alumnoSolicitante.apellido);
@@ -200,8 +216,6 @@ export class HomeComponent implements OnInit {
       alumnoModificado.setTipo(this.alumnoSolicitante.tipo_telefono);
       console.log('ALUMNO MODIFICADO');
       console.log(alumnoModificado);
-
-      //document.getElementById('a-confirmar').click();
       
       this.serviceAlumnos.updateAlumno(alumnoModificado)
       .subscribe((response) => {
@@ -219,8 +233,6 @@ export class HomeComponent implements OnInit {
           });
       }); 
 
-      
-
     }
   }
 
@@ -234,6 +246,7 @@ export class HomeComponent implements OnInit {
 
   cancelarSolicitud(){
     this.alumnoSolicitante=null;
+    this.camposVacios = false;
     this.solicitarLegajoAlumno = false;
     this.inicio = true;
     this.verTabla = true;

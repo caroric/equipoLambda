@@ -76,7 +76,7 @@
    </div>
 
    <!--Legajo válido: datos del alumno-->
-   <div class="container container-sm" *ngIf="alumnoSolicitante">
+   <div class="container container-sm" *ngIf="!solicitudDoble && alumnoSolicitante">
       <div class="two-col">
          <div class="col1">
             <h5>Datos del alumno</h5>
@@ -117,28 +117,24 @@
 
       <div style="display: flex;">
          <button id="btnConfirmar" (click)="confirmarSolicitud()">
-            <i class="fas fa-check"></i>  <a id="a-confirmar" href="#openModal"> Confirmar</a>
+            <i class="fas fa-check"></i> Confirmar
          </button>
          <button (click)="cancelarSolicitud()">
             <i class="fas fa-times"></i> Cancelar
          </button>
+
+         <a style="visibility: hidden;" id="a-confirmar" href="#openModal">Confirmar</a>
       </div>
 
-      <!--
-  <div *ngIf="camposVacios" class="sinDatos alert alert-danger" role="alert">
+      <div *ngIf="camposVacios" class="sinDatos alert alert-danger" role="alert">
          Por favor, complete sus datos de contacto.
       </div>
-      -->
+
    </div>
 
-   <div *ngIf="solicitudRegistrada" class="container-alert">
-      <div  class="sinDatos alert alert-success" role="alert">
-         <div class="title-container">
-            <h4><i class="far fa-envelope"></i>Solicitud registrada</h4>
-         <br>
-            <p>Se ha enviado la solicitud a la secretaría.</p>
-         </div>
-      </div>
+   <!--Alerta para solicitud repetida-->
+   <div *ngIf="solicitudDoble" class="sinDatos alert alert-primary" role="alert">
+      Usted ya ha realizado una solicitud para esta pasantía.
    </div>
 
 
