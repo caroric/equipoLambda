@@ -27,7 +27,7 @@ import { NombreSucursalComponent } from '../app/Inputs/nombre-sucursal/nombre-su
 import { PerfilComponent } from '../app/Inputs/perfil/perfil.component';
 import { DuracionComponent } from '../app/Inputs/duracion/duracion.component';
 import { InputRemuneracionComponent } from '../app/Inputs/input-remuneracion/input-remuneracion.component';
-
+import { ModalDialogComponent } from './Screens/modal-dialog/modal-dialog.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,8 @@ import { InputRemuneracionComponent } from '../app/Inputs/input-remuneracion/inp
     NombreSucursalComponent,
     PerfilComponent,
     DuracionComponent,
-    InputRemuneracionComponent
+    InputRemuneracionComponent,
+    ModalDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -29,6 +29,8 @@ export class PedidosPasantiaComponent implements OnInit {
   }
 
   aceptarPedido(solicitud: any){
+    document.getElementById('a-aceptar').click();
+    /*
     this.solicitud = solicitud;
     console.log('solicitud')
     console.log(this.solicitud);
@@ -46,7 +48,7 @@ export class PedidosPasantiaComponent implements OnInit {
     this.service.updateArmxAlumno(armModificado)
     .subscribe((response) => {
       this.OutputReload.emit(true);
-    });
+    });*/
   }
 
   rechazarSolicitud(solicitud: any){

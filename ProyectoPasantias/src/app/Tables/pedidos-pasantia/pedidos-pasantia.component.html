@@ -18,7 +18,7 @@
          <td>{{p.formularioarm.sucursal.nombre_sucursal}}</td>
          <td>{{p.estadoarmxalumno.nombre}}</td>
          <td>
-            <button type="button" data-toggle="modal" data-target="#ventanaModal" class="icono btn btn-success" (click)="aceptarPedido(p)">
+            <button type="button" class="icono btn btn-success" (click)="aceptarPedido(p)">
                <i class="far fa-check-circle"></i>
             </button>
             <button type="button" class="icono btn btn-danger" (click)="rechazarSolicitud(p)">
@@ -32,9 +32,24 @@
       </tbody>
    </table>
    <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+
+   <!-- Modal para notificar envío de solicitud-->
+   <div id="modal-aceptar" class="modalDialog">
+      <div class="title-container">
+         <h4><i class="far fa-envelope"></i>Solicitud aceptada</h4>
+      <br>
+         <p>Se ha enviado un mail a la empresa y al alumno para notificarles la situación.</p>
+         <button (click)="closeModal()">
+            <a id="a-ok" href="">Ok</a>
+         </button>
+      </div>
+   </div>
+
 </div>
 
+
 <!--Notificacion de solicitud aceptada-->
+<!--
 <div class="modal" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana" aria-hidden="true">
    <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -60,6 +75,8 @@
       </div>
    </div>
 </div>
+-->
+
 
 <!--
 <div *ngIf="notificacionEnviada" class="alerta alert alert-primary" role="alert">
