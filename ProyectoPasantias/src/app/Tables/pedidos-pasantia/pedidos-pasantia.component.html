@@ -11,20 +11,20 @@
          </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let p of InputPedidos | paginate: { itemsPerPage: 10, currentPage: pageActual}" >
+        <tr class="tr-main-table" *ngFor="let p of InputPedidos | paginate: { itemsPerPage: 10, currentPage: pageActual}" >
          <td>{{p.fecha_solicitud | date: 'shortDate' | date: 'dd/MM/yyyy'}}</td>
          <td>{{p.alumno.legajo}}</td>
          <td>{{p.alumno.nombre}} {{p.alumno.apellido}}</td>
          <td>{{p.formularioarm.sucursal.nombre_sucursal}}</td>
          <td>{{p.estadoarmxalumno.nombre}}</td>
-         <td>
+         <td class="button-container">
             <button type="button" class="icono btn btn-success" (click)="aceptarPedido(p)">
                <i class="far fa-check-circle"></i>
             </button>
             <button type="button" class="icono btn btn-danger" (click)="rechazarSolicitud(p)">
                <i class="far fa-times-circle"></i>
             </button>
-            <button type="button" class="icono btn-comun btn btn-primary" (click)="verInfoPedido(p)">
+            <button type="button" class="icono btn btn-info" (click)="verInfoPedido(p)">
                <i class="fas fa-clipboard-list"></i>
             </button>
          </td>
@@ -39,7 +39,7 @@
          <h4><i class="far fa-envelope"></i>Solicitud aceptada</h4>
       <br>
          <p>Se ha enviado un mail a la empresa y al alumno para notificarles la situación.</p>
-         <button (click)="closeModal()">
+         <button>
             <a id="a-ok" href="">Ok</a>
          </button>
       </div>
@@ -47,61 +47,24 @@
 
 </div>
 
-
-<!--Notificacion de solicitud aceptada-->
-<!--
-<div class="modal" id="ventanaModal" tabindex="-1" role="dialog" aria-labelledby="tituloVentana" aria-hidden="true">
-   <div class="modal-dialog" role="document">
-      <div class="modal-content">
-         <div class="modal-header">
-            <h5 id="tituloVentana">Título</h5>
-            <button class="close" data-dismiss="modal" aria-label="Cerrar">
-               <span aria-hidden="">&times;</span>
-            </button>
-         </div>
-         <div class="modal-body">
-            <div class="alert alert-success">
-               <h6>Tus datos se han guardado.</h6>
-            </div>
-         </div>
-         <div class="modal-footer">
-            <button class="btn btn-warning" type="button" data-dismiss="modal">
-               Cerrar
-            </button>
-            <button class="btn btn-success" type="button">
-               Aceptar
-            </button>
-         </div>
-      </div>
-   </div>
-</div>
--->
-
-
-<!--
-<div *ngIf="notificacionEnviada" class="alerta alert alert-primary" role="alert">
-   Se ha notificado a los interesados.
-</div>
--->
-
 <!-- Denegación de solicitud-->
 <div *ngIf="inputComentarios" class="container container-sm">
-<app-comentarios
-(OutputComentarios)="receiveComentarios($event)">
-</app-comentarios>
-<button class="btn-comun" (click)="confirmar()">
-   <i class="far fa-check-circle"></i>  Confirmar
-</button>
-<button class="btn-comun" (click)="volver()">
-   <i class="far fa-times-circle"></i>  Cancelar
-</button>
+   <app-comentarios
+   (OutputComentarios)="receiveComentarios($event)">
+   </app-comentarios>
+   <button class="btn-comun" (click)="confirmar()">
+      <i class="far fa-check-circle"></i>  Confirmar
+   </button>
+   <button class="btn-comun" (click)="volver()">
+      <i class="far fa-times-circle"></i>  Cancelar
+   </button>
 </div>
 
 <!--Info de la solicitud-->
 <div *ngIf="verInfoSolicitud" class="container container-table table-responsive">
    <table class="table">
       <thead>
-      <h5 class="text-center text-capitalize">Datos del alumno</h5>
+      <h5 class="text-center">Datos del alumno</h5>
       </thead>
       <tbody>
          <tr>
@@ -112,12 +75,16 @@
             <td><strong class="descripcion">Legajo:     </strong>
                {{solicitud.alumno.legajo}}</td>
          </tr>
+         <tr>
+            <td><strong class="descripcion">Carrera:     </strong>
+               {{solicitud.alumno.especialidad.nombre}}</td>
+         </tr>
       </tbody>
    </table>
 
    <table class="table">
       <thead>
-      <h5 class="text-center text-capitalize">Datos de la empresa</h5>
+      <h5 class="text-center">Datos de la pasantía</h5>
       </thead>
       <tbody>
          <tr>
@@ -129,7 +96,23 @@
                {{solicitud.formularioarm.sucursal.nombre_sucursal}}</td>
          </tr>
          <tr>
-            <button type="button" class="justify-content-center" (click)="volverDesdeInfo()">
+            <td><strong class="descripcion">Año de cursado solicitado:   </strong>
+               {{solicitud.formularioarm.id_cantidadAnios}}° año</td>
+         </tr> 
+         <tr>
+            <td><strong class="descripcion">Experiencia requerida:   </strong>
+               {{solicitud.formularioarm.experencia}}° año</td>
+         </tr> 
+         <tr>
+            <td><strong class="descripcion">Cargo a cubrir:   </strong>
+               {{solicitud.formularioarm.cargoACubrir}}</td>
+         </tr> 
+         <tr>
+            <td><strong class="descripcion">Fecha fin de búsqueda:   </strong>
+               {{solicitud.formularioarm.fechaBaja | date: 'shortDate' | date: 'dd/MM/yyyy'}}</td>
+         </tr>
+         <tr>
+            <button type="button" class="justify-content-center back-button" (click)="volverDesdeInfo()">
                <i class="fa fa-arrow-left" aria-hidden="true"></i>  Regresar
             </button>
          </tr>

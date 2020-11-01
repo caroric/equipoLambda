@@ -53,5 +53,10 @@
       [InputLegajo]="legajo"
       (OutputReload)="reload($event)">
       </app-pedidos-pasantia>
+      <div *ngIf="pedidosPasantia.length === 0">
+         <div class="sinDatos alert alert-info" role="alert">
+            No hay solicitudes pendientes para procesar.
+         </div>
+      </div>
    </div>
 </body>

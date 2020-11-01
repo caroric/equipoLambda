@@ -27,7 +27,9 @@ import { NombreSucursalComponent } from '../app/Inputs/nombre-sucursal/nombre-su
 import { PerfilComponent } from '../app/Inputs/perfil/perfil.component';
 import { DuracionComponent } from '../app/Inputs/duracion/duracion.component';
 import { InputRemuneracionComponent } from '../app/Inputs/input-remuneracion/input-remuneracion.component';
+import { NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
 import { ModalDialogComponent } from './Screens/modal-dialog/modal-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -59,7 +61,8 @@ import { ModalDialogComponent } from './Screens/modal-dialog/modal-dialog.compon
     NgxPaginationModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModalModule
   ],
   providers: [
     PasantiasService,
