@@ -7,6 +7,7 @@ import { alumno } from 'src/app/Models/alumno';
 import { createNgModule } from '@angular/compiler/src/core';
 //import { MockAlumnosService } from '../../Services/mock-alumnos.service';
 import { formularioarmxalumno } from '../../Models/formularioarmxalumno';
+import { ModalServiceService } from '../../Services/modal-service.service';
 
 @Component({
   selector: 'app-home',
@@ -38,7 +39,8 @@ export class HomeComponent implements OnInit {
   solicitudDoble = false;
   
   constructor(private servicePasantias: PasantiasService,
-              private serviceAlumnos: AlumnosService
+              private serviceAlumnos: AlumnosService,
+              private modalService: ModalServiceService
               /*private mockAlumnos: MockAlumnosService*/) { }
 
   ngOnInit(): void {
@@ -205,7 +207,10 @@ export class HomeComponent implements OnInit {
       console.log(this.telefono);
     }
     else{
-      document.getElementById('a-confirmar').click();
+      this.modalService.Alert('Se ha registrado su solicitud para la pasantía seleccionada.', 'Solicitud registrada', 's');
+      //this.volverAlHome();
+
+      //document.getElementById('a-confirmar').click();
       let alumnoModificado: alumno = new alumno();
       alumnoModificado.setNombre(this.alumnoSolicitante.nombre);
       alumnoModificado.setApellido(this.alumnoSolicitante.apellido);
@@ -230,6 +235,7 @@ export class HomeComponent implements OnInit {
         this.serviceAlumnos.saveFormularioXAlumno(armxalumno)
           .subscribe((response) => {
             console.log(response);
+            this.volverAlHome();
           });
       }); 
 

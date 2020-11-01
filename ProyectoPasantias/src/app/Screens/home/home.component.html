@@ -104,7 +104,7 @@
       <!--Form de datos empresa solo para pantallas responsive-->
       <div class="two-col">
          <div class="col1 responsive-screen">
-            <h5>Datos de la empresa</h5>
+            <h5>Datos de la pasantía</h5>
             <div class="contenedor-datos ml-auto">
                <razon-social [InputRazonSocial]="pasantiaSeleccionada.formularioarm.sucursal.empresa.razon_social"></razon-social>
                <nombre-sucursal [InputSucursal]="pasantiaSeleccionada.formularioarm.sucursal.nombre_sucursal"></nombre-sucursal>
@@ -123,7 +123,10 @@
             <i class="fas fa-times"></i> Cancelar
          </button>
 
-         <a style="visibility: hidden;" id="a-confirmar" href="#openModal">Confirmar</a>
+         <!--
+<a style="visibility: hidden;" id="a-confirmar" href="#openModal">Confirmar</a>
+         -->
+         
       </div>
 
       <div *ngIf="camposVacios" class="sinDatos alert alert-danger" role="alert">
@@ -139,6 +142,7 @@
 
 
    <!-- Modal para notificar envío de solicitud-->
+   <!--
 <div id="openModal" class="modalDialog">
       <div class="title-container">
          <h4><i class="far fa-envelope"></i>Solicitud registrada</h4>
@@ -149,6 +153,9 @@
          </button>
       </div>
 </div>
+
+   -->
+
 
    <!--Alerta legajo inválido-->
    <div *ngIf="!legajoExistente" class="sinDatos alert alert-warning" role="alert">

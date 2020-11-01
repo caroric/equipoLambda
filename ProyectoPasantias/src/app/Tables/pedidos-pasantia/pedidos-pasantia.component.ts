@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { formularioarmxalumno } from '../../Models/formularioarmxalumno';
 import { ResponsableService } from '../../Services/responsable.service';
+import { ModalServiceService } from '../../Services/modal-service.service';
+import { ModalDialogComponent } from 'src/app/Screens/modal-dialog/modal-dialog.component';
 @Component({
   selector: 'app-pedidos-pasantia',
   templateUrl: './pedidos-pasantia.component.html',
@@ -17,7 +19,8 @@ export class PedidosPasantiaComponent implements OnInit {
   verInfoSolicitud=false;
   solicitud: any;
   comentarios: string;
-  constructor(private service: ResponsableService) { }
+  constructor(private service: ResponsableService,
+              private modalService: ModalServiceService) { }
 
   ngOnInit(): void {
   }
@@ -29,6 +32,11 @@ export class PedidosPasantiaComponent implements OnInit {
   }
 
   aceptarPedido(solicitud: any){
+    this.modalService.Alert('Se ha enviado un mail a la empresa y al alumno para notificarles la confirmación de la solicitud.', 'Solicitud aceptada')
+    setTimeout(() => {
+      this.OutputReload.emit(true);
+    }, 2000);
+
     this.solicitud = solicitud;
     console.log('solicitud')
     console.log(this.solicitud);
@@ -45,7 +53,8 @@ export class PedidosPasantiaComponent implements OnInit {
     armModificado.fecha_respuesta = fecha;
     this.service.updateArmxAlumno(armModificado)
     .subscribe((response) => {
-      this.OutputReload.emit(true);
+      //this.OutputReload.emit(true);
+      
     });
   }
 
@@ -61,6 +70,13 @@ export class PedidosPasantiaComponent implements OnInit {
   }
 
   confirmar(){
+    this.modalService.Alert('Se ha enviado un mail al alumno para notificarle acerca del rechazo de la solicitud.', 'Solicitud rechazada')
+    setTimeout(() => {
+      this.OutputReload.emit(true);
+      this.inputComentarios = false;
+      this.verTabla = true;
+    }, 2000);
+
     console.log('solicitud')
     console.log(this.solicitud);
     console.log(this.InputLegajo);
@@ -77,16 +93,12 @@ export class PedidosPasantiaComponent implements OnInit {
     armModificado.observacion = this.comentarios;
     this.service.updateArmxAlumno(armModificado)
     .subscribe((response) => {
-      this.OutputReload.emit(true);
+    /* this.OutputReload.emit(true);
       this.inputComentarios = false;
-      this.verTabla = true;
+      this.verTabla = true;*/
     });
   }
-
-  closeModal(){
-    document.getElementById('a-ok').click();
-  }
-
+  
   verInfoPedido(pedido: any){
     console.log('Solicitud pasantia:');
     console.log(pedido);

@@ -1,19 +1,23 @@
 .container-table{
-   margin-top: 25px;
-   background-color: #ffffff;
-   padding-left: 0px;
-   padding-right: 0px;
-  }
+  margin-top: 25px;
+  background-color: #ffffff;
+  padding-left: 0px;
+  padding-right: 0px;
+}
 
   .container {
-   margin-top: 5px;
-   border-radius: 5px;
-   background-color: #ffffff;
- }
+  margin-top: 5px;
+  border-radius: 5px;
+  background-color: #ffffff;
+}
 
 thead{
   background-color: #4D67B7;
   color: #ffffff;
+  text-align: center;
+}
+
+.tr-main-table{
   text-align: center;
 }
 
@@ -41,10 +45,30 @@ button{
   margin-left:25px;
 }
 
+.back-button{
+  background-color: #4D67B7;
+  color: #ffffff;
+}
+
+.button-container{
+  display: flex;
+}
+
+/*
+.td-button{
+  padding-left: 2px;
+  padding-right: 2px;
+  width: 10px;
+  height: 10px;
+}*/
+
 .icono{
   font-size: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 2px;
+  padding-right: 2px;
+  width: 35px;
+  height: 35px;
+  margin-left: 2px;
 }
 
 .btn-comun{
