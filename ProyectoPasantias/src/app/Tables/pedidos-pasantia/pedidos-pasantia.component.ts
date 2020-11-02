@@ -91,6 +91,8 @@ export class PedidosPasantiaComponent implements OnInit {
     let fecha: Date = new Date();
     armModificado.fecha_respuesta = fecha;
     armModificado.observacion = this.comentarios;
+    console.log('----FORMULARIO ACTUALIZADO---');
+    console.log(armModificado);
     this.service.updateArmxAlumno(armModificado)
     .subscribe((response) => {
     /* this.OutputReload.emit(true);
